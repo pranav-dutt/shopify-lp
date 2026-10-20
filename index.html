@@ -1,715 +1,1034 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/fonts.css">
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/colors.css">
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/typography.css">
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/spacing.css">
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/effects.css">
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/base.css">
-<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/styles.css">
-<script src="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/_ds_bundle.js"></script>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Rabiro Shopify Landing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Custom-coded Shopify stores built for conversion. 150 stores shipped. Official Shopify Partner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
-html,body{margin:0;background:#F6F6F8;-webkit-font-smoothing:antialiased}
+/* Layout: one long sell — hero + live race, work reel, proof, comparison, plans, form modal. Rabiro DS, light corporate register. */
+:root{
+  --ink:#0A0C12; --ink-2:#262B37; --ink-3:#515869; --ink-4:#6D7585; --ink-5:#99A1B1;
+  --line:#E1E5EC; --line-2:#EEF1F5; --soft:#F6F6F8; --canvas:#FBFCFD; --white:#FFFFFF;
+  --night:#07080C; --night-2:#0F1219; --night-line:rgba(255,255,255,.10); --night-text:#A8B0BF;
+  --blue:#1456E5; --blue-d:#0F45BC; --blue-dd:#0D3893; --blue-300:#82A6F6; --blue-50:#EEF3FE;
+  --green:#7BCF46; --green-d:#4E9126; --green-50:#F3FBEC; --red:#D33F3A; --red-50:#FDEEEE;
+  --font-sans:"Manrope","Helvetica Neue",Helvetica,system-ui,sans-serif;
+  --font-serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gut-l:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
 *{box-sizing:border-box}
-a{color:#1456E5;text-decoration:none}
-a:hover{color:#0F45BC}
-::selection{background:#7BCF46;color:#0A0C12}
-@keyframes slMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes slDeck{0%{transform:translate3d(0,900px,0);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translate3d(0,-900px,0);opacity:0}}
-@media (max-width:900px){[data-desk]{display:none !important}[data-mob]{display:flex !important}[data-hs]{height:auto !important}[data-hs-sticky]{position:relative !important;height:auto !important;padding:30px 0}[data-hs-track]{width:auto !important;overflow-x:auto;scroll-snap-type:x mandatory;transform:none !important}[data-hcard]{scroll-snap-align:center;transform:none !important}}
-input[data-rng]{-webkit-appearance:none;appearance:none;position:absolute;left:0;right:0;top:0;width:100%;height:30px;margin:0;background:transparent;pointer-events:none}
-input[data-rng]::-webkit-slider-runnable-track{background:transparent;height:30px}
-input[data-rng]::-moz-range-track{background:transparent;height:30px}
-input[data-rng]::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:30px;height:30px;border-radius:99px;background:#FFFFFF;border:2px solid #1456E5;box-shadow:0 4px 14px rgba(20,86,229,.25);cursor:grab;transition:transform .14s ease}
-input[data-rng]::-moz-range-thumb{pointer-events:auto;width:26px;height:26px;border-radius:99px;background:#FFFFFF;border:2px solid #1456E5;box-shadow:0 4px 14px rgba(20,86,229,.25);cursor:grab}
-input[data-rng]:active::-webkit-slider-thumb{transform:scale(1.1);cursor:grabbing}
-input[data-rng]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(20,86,229,.24)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+::selection{background:var(--green);color:var(--ink)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{max-width:1320px;margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.sec{padding-block:clamp(72px,9vw,120px) 0}
+.eyebrow{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4)}
+.h2{margin-top:14px;font-size:clamp(32px,4.4vw,58px);font-weight:800;letter-spacing:-.045em;line-height:1}
+.h2 .mute{color:var(--ink-5)}
+.h2 em{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.lead{margin:16px 0 0;font-size:17px;line-height:1.6;color:var(--ink-3);max-width:52ch}
+
+/* buttons */
+.btn{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:12px;font-size:15.5px;font-weight:700;padding:7px 7px 7px 22px;border-radius:99px;transition:background .2s ease,transform .2s var(--ease);white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn .arr{width:36px;height:36px;border-radius:99px;display:flex;align-items:center;justify-content:center;flex:none;font-size:16px}
+.btn-blue{background:var(--blue);color:var(--white)} .btn-blue:hover{background:var(--blue-d)} .btn-blue .arr{background:var(--green);color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--white)} .btn-ink:hover{background:var(--ink-2)} .btn-ink .arr{background:var(--green);color:var(--ink)}
+.btn-white{background:var(--white);color:var(--ink)} .btn-white:hover{background:var(--soft)} .btn-white .arr{background:var(--ink);color:var(--green)}
+.btn-line{background:transparent;color:var(--ink);border:1.5px solid var(--ink);padding:12px 20px} .btn-line:hover{background:var(--ink);color:var(--white)}
+.tick{color:var(--green-d);font-weight:800}
+
+/* ---------- HERO ---------- */
+.hero{padding-block:22px clamp(40px,5vw,72px)}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hero-top img{height:26px;width:auto}
+.partner{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);background:var(--soft);padding:8px 12px;border-radius:99px;white-space:nowrap}
+.partner i{width:7px;height:7px;border-radius:99px;background:var(--green);box-shadow:0 0 0 4px rgba(123,207,70,.22)}
+.hero-grid{margin-top:clamp(36px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(44px,6.6vw,96px);font-weight:800;letter-spacing:-.055em;line-height:.93}
+.hero h1 .b{color:var(--blue)}
+.hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+.hero-sub{margin:22px 0 0;font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:var(--ink-3);max-width:40ch}
+.hero-ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-ticks{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--ink-3)}
+.hero-ticks li{display:flex;gap:7px;align-items:center}
+.hero-stats{margin-top:34px;padding-top:22px;border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;gap:22px 40px}
+.stat b{display:block;font-size:38px;font-weight:200;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
+
+/* race panel */
+.race{position:relative;border-radius:32px;background:var(--night);color:var(--white);padding:clamp(18px,2.4vw,28px);overflow:hidden;isolation:isolate}
+.race::before{content:"";position:absolute;right:-35%;top:-40%;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(20,86,229,.42),rgba(20,86,229,0));z-index:-1}
+.race::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 60% 30%,#000,transparent 75%);mask-image:radial-gradient(circle at 60% 30%,#000,transparent 75%);z-index:-1}
+.race-head{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--night-text)}
+.race-head b{color:var(--white);font-weight:500}
+.lanes{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,22px)}
+.lane-tag{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:13px;font-weight:700}
+.lane-tag small{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;font-weight:500;padding:4px 8px;border-radius:99px}
+.lane.bad .lane-tag small{background:rgba(211,63,58,.16);color:#FF8F8A}
+.lane.good .lane-tag small{background:rgba(123,207,70,.16);color:var(--green)}
+.phone{position:relative;aspect-ratio:9/17;max-height:440px;width:100%;margin:0 auto;border-radius:26px;background:var(--white);border:6px solid #1B1F29;overflow:hidden;color:var(--ink)}
+.p-bar{height:3px;background:var(--line-2)}
+.p-bar i{display:block;height:100%;width:0;background:var(--red)}
+.lane.good .p-bar i{background:var(--green)}
+.p-nav{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;border-bottom:1px solid var(--line-2)}
+.p-nav i{display:block;height:6px;border-radius:9px;background:var(--line)}
+.p-body{padding:10px;display:flex;flex-direction:column;gap:8px}
+.sk{border-radius:8px;background:linear-gradient(90deg,var(--line-2),#F9FAFB,var(--line-2));background-size:200% 100%;animation:shim 1.2s linear infinite}
+@keyframes shim{to{background-position:-200% 0}}
+.p-img{aspect-ratio:1/1;border-radius:10px;position:relative;overflow:hidden}
+.good .p-img{background:linear-gradient(160deg,#DCE7FD,#B9CDF9 55%,#82A6F6)}
+.good .p-img::after{content:"";position:absolute;left:22%;right:22%;top:18%;bottom:12%;border-radius:40% 40% 14px 14px;background:var(--ink);opacity:.9}
+.p-title{font-size:12px;font-weight:800;letter-spacing:-.01em}
+.p-price{font-size:12px;font-weight:700} .p-price s{color:var(--ink-5);font-weight:500;margin-left:4px}
+.sizes{display:flex;gap:4px}
+.sizes span{flex:1;text-align:center;font-size:9.5px;font-weight:700;padding:5px 0;border-radius:6px;border:1px solid var(--line);transition:all .25s ease}
+.sizes span.on{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.offer{font-size:9.5px;font-weight:800;color:var(--green-d);background:var(--green-50);border:1px dashed var(--green);border-radius:6px;padding:5px 7px}
+.atc{position:absolute;left:8px;right:8px;bottom:8px;text-align:center;background:var(--blue);color:var(--white);font-size:11px;font-weight:800;padding:10px;border-radius:10px;transition:transform .2s ease}
+.atc.pulse{animation:pulse 1s var(--ease)}
+@keyframes pulse{0%{transform:scale(1)}40%{transform:scale(.94)}100%{transform:scale(1)}}
+.toast{position:absolute;left:8px;right:8px;top:40px;background:var(--ink);color:var(--white);font-size:10px;font-weight:700;border-radius:10px;padding:8px 10px;display:flex;gap:6px;align-items:center;opacity:0;transform:translateY(-8px);transition:all .35s var(--ease)}
+.toast.show{opacity:1;transform:none}
+.toast.err{background:var(--red)}
+.bad .p-body{transition:transform .5s ease}
+.bad .shift{transform:translateY(26px)}
+.lane-meter{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.meter{border-radius:12px;background:var(--night-2);border:1px solid var(--night-line);padding:9px 11px}
+.meter span{display:block;font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--night-text)}
+.meter b{display:block;margin-top:2px;font-size:20px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.bad .meter b{color:#FF8F8A} .good .meter b{color:var(--green)}
+.race-foot{margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--night-text)}
+.race-foot b{color:var(--white);font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:20px}
+
+/* logo band */
+.logos{background:var(--night);padding-block:26px;overflow:hidden}
+.logos{padding-block:0}
+.logos-row{display:flex;width:max-content;animation:marq 40s linear infinite;align-items:center}
+.logo-cell{flex:none;width:clamp(150px,15vw,200px);height:88px;display:flex;align-items:center;justify-content:center;padding:0 18px}
+.logo-cell img{width:auto;height:24px;max-width:100%;object-fit:contain;filter:brightness(0) invert(1);opacity:.72}
+.logo-cell .word{color:var(--white);opacity:.72;font-weight:800;letter-spacing:-.04em;font-size:22px;line-height:1}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- WORK REEL ---------- */
+.reel{position:relative;margin-top:clamp(72px,9vw,120px)}
+.reel-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-block:24px}
+.reel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.reel-count{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.reel-count span{color:var(--ink-5)}
+.track{margin-top:28px;display:flex;gap:28px;width:max-content;padding-left:max(var(--gut-l),calc((100vw - 1320px)/2 + 16px));padding-right:var(--gut-r);will-change:transform}
+.card{flex:none;width:clamp(300px,min(620px,52vw,calc((100vh - 300px)*1.35)),620px);display:block}
+.shot{position:relative;padding-bottom:26px}
+.browser{border-radius:16px;overflow:hidden;background:var(--white);border:1px solid var(--line);box-shadow:0 30px 70px rgba(10,12,18,.12)}
+.chrome{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line-2);background:var(--canvas)}
+.chrome i{width:8px;height:8px;border-radius:99px;background:var(--line)}
+.chrome span{margin-left:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-4);background:var(--soft);padding:3px 10px;border-radius:99px}
+.browser img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.mob{position:absolute;right:-10px;bottom:0;width:23%;border-radius:18px;border:5px solid var(--ink);overflow:hidden;background:var(--ink);box-shadow:0 24px 50px rgba(10,12,18,.32)}
+.mob img{width:100%;aspect-ratio:9/18;object-fit:cover;object-position:top}
+.card-meta{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-meta h3{font-size:20px;font-weight:800;letter-spacing:-.025em}
+.card-meta p{margin:2px 0 0;font-size:13.5px;color:var(--ink-4)}
+.visit{flex:none;font-size:13px;font-weight:700;padding:9px 14px;border-radius:99px;background:var(--soft);transition:background .2s}
+.card:hover .visit{background:var(--ink);color:var(--white)}
+.reel-bar{margin-top:22px;height:3px;border-radius:99px;background:var(--line-2);overflow:hidden}
+.reel-bar i{display:block;height:100%;width:0;background:var(--blue)}
+
+/* ---------- CASE ---------- */
+.case{border-radius:30px;background:var(--blue-dd);color:var(--white);overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.case-l{padding:clamp(26px,4vw,52px)}
+.case-l .eyebrow{color:#B2C8FA}
+.case-l h3{margin-top:14px;font-size:clamp(32px,3.6vw,50px);font-weight:800;letter-spacing:-.045em;line-height:1}
+.case-l p{margin:14px 0 0;color:#D9E4FD;max-width:44ch}
+.metrics{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:baseline}
+.mrow .k{font-size:14px;font-weight:700}
+.mrow .v{font-family:var(--font-mono);font-size:13px;font-variant-numeric:tabular-nums;color:#B2C8FA}
+.mrow .v b{color:var(--white);font-size:15px}
+.mrow .up{color:var(--green);font-weight:700}
+.bars{grid-column:1/-1;display:grid;gap:4px}
+.bars i{display:block;height:7px;border-radius:99px}
+.bars .bf{background:rgba(255,255,255,.22)}
+.bars .af{background:var(--green);width:0;transition:width 1.2s var(--ease)}
+.case.in .bars .af{width:var(--w)}
+.case-r{position:relative;padding:clamp(20px,3vw,40px);display:flex;flex-direction:column;justify-content:center;gap:16px;background:rgba(255,255,255,.05)}
+.pages{display:flex;gap:6px;flex-wrap:wrap}
+.pages button{appearance:none;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:transparent;color:#D9E4FD;font-size:13.5px;font-weight:700;padding:9px 15px;border-radius:99px;position:relative;overflow:hidden;transition:background .2s,color .2s}
+.pages button.on{background:var(--white);color:var(--ink);border-color:var(--white)}
+.pages button.on::after{content:"";position:absolute;left:0;bottom:0;height:2px;background:var(--blue);width:0;animation:pgfill 4.2s linear forwards}
+.case-r.paused .pages button.on::after{animation:none;width:100%}
+@keyframes pgfill{to{width:100%}}
+.shot-wrap{position:relative;padding-bottom:28px;padding-right:12px}
+.case-r .browser{width:100%;border:0;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.stack{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--soft)}
+.stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transform:scale(1.02);transition:opacity .5s ease,transform .7s var(--ease)}
+.stack img.on{opacity:1;transform:none}
+.case-r .mob{right:0;bottom:0;width:25%}
+.case-r .mob .stack{aspect-ratio:9/18}
+.pg-cap{margin:0;font-size:14px;color:#D9E4FD}
+.chrome span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.legend{margin-top:16px;display:flex;gap:16px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#B2C8FA}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:14px;height:6px;border-radius:9px;background:rgba(255,255,255,.3)}
+.legend span:last-child i{background:var(--green)}
+
+/* ---------- COMPARE ---------- */
+.vs{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vs-col{border-radius:26px;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.vs-col.us{background:var(--night);color:var(--white)}
+.vs-col.them{background:var(--soft);border:1px solid var(--line)}
+.vs-label{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vs-label h3{font-size:22px;font-weight:800;letter-spacing:-.03em}
+.vs-label small{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:99px}
+.us .vs-label small{background:rgba(123,207,70,.15);color:var(--green)}
+.them .vs-label small{background:var(--red-50);color:var(--red)}
+.stage{position:relative;height:330px;border-radius:18px;overflow:hidden}
+.us .stage{background:var(--night-2);border:1px solid var(--night-line);display:grid;grid-template-columns:1fr 1fr}
+.code{padding:16px 14px;font-family:var(--font-mono);font-size:11px;line-height:1.75;color:#C8D0DD;overflow:hidden;white-space:pre;border-right:1px solid var(--night-line)}
+.code .t{color:var(--blue-300)} .code .s{color:var(--green)} .code .c{color:#5C6577}
+.caret{display:inline-block;width:6px;height:12px;background:var(--green);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.pdp{position:relative;padding:12px;display:flex;flex-direction:column;gap:7px;background:var(--white);color:var(--ink);margin:12px;border-radius:12px}
+.pdp .p-img{aspect-ratio:4/3;background:linear-gradient(160deg,#E4EDFD,#9DB9F8)}
+.pdp .p-img::after{content:"";position:absolute;left:30%;right:30%;top:14%;bottom:8%;border-radius:40% 40% 10px 10px;background:var(--ink);opacity:.88}
+.hl{position:relative;border-radius:7px;transition:box-shadow .3s ease}
+.hl.on{box-shadow:0 0 0 2px var(--green)}
+.hl .pin{position:absolute;right:-6px;top:-8px;font-family:var(--font-mono);font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--green);color:var(--ink);padding:2px 5px;border-radius:5px;opacity:0;transition:opacity .3s}
+.hl.on .pin{opacity:1}
+.pdp .atc2{text-align:center;background:var(--blue);color:var(--white);font-size:10.5px;font-weight:800;padding:8px;border-radius:8px}
+.fbt{display:flex;gap:6px;align-items:center;font-size:9.5px;font-weight:700;color:var(--ink-3)}
+.fbt i{width:22px;height:22px;border-radius:6px;background:var(--blue-50);flex:none}
+.them .stage{background:var(--white);border:1px solid var(--line);display:grid;grid-template-columns:92px 1fr}
+.blocks{border-right:1px solid var(--line-2);padding:10px 8px;display:flex;flex-direction:column;gap:6px;background:var(--canvas)}
+.blocks span{font-size:9.5px;font-weight:700;color:var(--ink-3);background:var(--white);border:1px solid var(--line);border-radius:6px;padding:6px 7px}
+.canvas{position:relative;padding:10px;display:flex;flex-direction:column;gap:6px}
+.drop{height:0;border-radius:7px;background:var(--line-2);border:1px dashed var(--ink-5);opacity:0;transition:height .45s var(--ease),opacity .3s}
+.drop.in{opacity:1}
+.ghost{position:absolute;z-index:3;font-size:9.5px;font-weight:700;background:var(--white);border:1px solid var(--blue);color:var(--blue);border-radius:6px;padding:6px 8px;box-shadow:0 10px 24px rgba(10,12,18,.18);pointer-events:none;opacity:0;transition:transform .9s var(--ease),opacity .2s}
+.cursor{position:absolute;z-index:4;width:14px;height:14px;pointer-events:none;opacity:0;transition:transform .9s var(--ease)}
+.errs{position:absolute;left:100px;right:10px;bottom:10px;display:flex;flex-direction:column;gap:6px}
+.err{display:flex;gap:8px;align-items:center;font-size:11.5px;font-weight:700;color:var(--red);background:var(--white);border:1px solid #F6C9C7;border-radius:9px;padding:8px 10px;box-shadow:0 8px 20px rgba(211,63,58,.12);opacity:0;transform:translateY(8px) scale(.98);transition:all .35s var(--ease)}
+.err.show{opacity:1;transform:none}
+.err i{font-style:normal;width:18px;height:18px;border-radius:99px;background:var(--red);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:10px;flex:none}
+.plist{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.plist li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;font-weight:700;line-height:1.35;padding:11px 12px;border-radius:12px}
+.us .plist li{background:rgba(255,255,255,.06)}
+.them .plist li{background:var(--white);border:1px solid var(--line);color:var(--ink-2)}
+.plist .ok{color:var(--green)} .plist .no{color:var(--red)}
+
+/* ---------- BUILD ---------- */
+.two{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feat{border-radius:26px;border:1px solid var(--line);padding:clamp(22px,3vw,32px)}
+.feat h3{font-size:24px;font-weight:800;letter-spacing:-.03em;display:flex;align-items:center;gap:10px}
+.feat h3 i{width:12px;height:12px;border-radius:99px;background:var(--blue)}
+.feat:nth-child(2) h3 i{background:var(--green)}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spin{to{--ang:360deg}}
+.feat.hot{position:relative;border-color:transparent;background:var(--night);color:var(--white);isolation:isolate}
+.feat.hot::before,.feat.hot::after{content:"";position:absolute;inset:-2px;border-radius:28px;background:conic-gradient(from var(--ang),#1456E5,#2F8FE0 20%,#17A48C 35%,#7BCF46 50%,#1456E5 65%,#0A0C12 80%,#1456E5);animation:spin 4s linear infinite;z-index:-2}
+.feat.hot::after{filter:blur(22px);opacity:.45;z-index:-3}
+.feat.hot>.in{position:absolute;inset:0;border-radius:26px;background:var(--night);z-index:-1}
+.feat.hot h3 i{background:var(--green);box-shadow:0 0 0 5px rgba(123,207,70,.22)}
+.feat.hot .chips span{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.10)}
+.feat.hot .chips span::before{content:"✓";color:var(--green);font-weight:800}
+.feat-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.feat-badge{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:var(--green);color:var(--ink);padding:6px 10px;border-radius:99px}
+.feat-note{margin:16px 0 0;color:var(--night-text);font-size:15px;max-width:46ch}
+.two{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:stretch}
+.chips{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+.chips span{display:inline-flex;gap:8px;align-items:center;padding:11px 15px;border-radius:99px;background:var(--soft);font-size:14.5px;font-weight:700;color:var(--ink-2)}
+
+/* ---------- IN-HOUSE ---------- */
+.inhouse{border-radius:30px;background:var(--green-50);border:1px solid #C7EDAF;padding:clamp(28px,4.5vw,64px) clamp(20px,4vw,56px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center}
+.inhouse .eyebrow{color:var(--ink-3)}
+.inhouse .h2 .g{color:var(--green-d)}
+.checks{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.checks li{display:flex;gap:10px;align-items:center;background:var(--white);border-radius:14px;padding:14px;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.checks li i{flex:none;width:24px;height:24px;border-radius:99px;background:var(--ink);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;font-style:normal}
+
+/* ---------- PRICING ---------- */
+.tiers{margin-top:40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+.tier{border-radius:24px;padding:24px 22px;display:flex;flex-direction:column;background:var(--soft);border:1px solid var(--line-2);position:relative}
+.tier.hot{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.tier.dark{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.tier .tn{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.tier .badge{position:absolute;top:20px;right:18px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--green);color:var(--ink);padding:5px 9px;border-radius:99px;font-weight:700}
+.tier h3{margin-top:12px;font-size:21px;font-weight:800;letter-spacing:-.025em}
+.tier .price{margin:14px 0 0;font-size:32px;font-weight:800;letter-spacing:-.045em;line-height:1}
+.tier .price small{display:block;font-size:12px;font-weight:600;letter-spacing:0;opacity:.7;margin-bottom:4px}
+.tier .for{margin:10px 0 0;font-size:14px;line-height:1.5;opacity:.82}
+.tier ul{margin:18px 0 22px;padding:16px 0 0;list-style:none;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px}
+.tier.hot ul{border-color:rgba(255,255,255,.25)} .tier.dark ul{border-color:rgba(255,255,255,.14)}
+.tier li{font-size:14px;display:flex;gap:9px;line-height:1.4}
+.tier li::before{content:"✓";font-weight:800;color:var(--green-d)}
+.tier.hot li::before,.tier.dark li::before{color:var(--green)}
+.tier .btn{margin-top:auto;justify-content:space-between;width:100%;font-size:14.5px}
+.promise{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.promise>span{display:inline-flex;gap:8px;align-items:center;padding:10px 15px;border-radius:99px;border:1px solid var(--line);font-size:14px;font-weight:700}
+.audit{margin-top:14px;border-radius:24px;background:var(--night);color:var(--white);padding:clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 30px}
+.audit h3{font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.035em}
+.audit p{margin:6px 0 0;color:var(--night-text);font-size:15px}
+.audit .amt{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--green);font-size:1.15em}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:34px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 2px;font-size:clamp(17px,1.6vw,19px);font-weight:800;letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:99px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-style:normal;transition:transform .3s var(--ease),background .2s}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--green)}
+.faq p{margin:0 0 20px;color:var(--ink-3);max-width:64ch}
+
+/* ---------- LIVE STORES ---------- */
+.live{margin-top:clamp(72px,9vw,120px);background:var(--night);color:var(--white);overflow:hidden}
+.live-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;align-items:center;padding-block:clamp(56px,7vw,96px)}
+.live .eyebrow{color:var(--night-text);display:flex;align-items:center;gap:8px}
+.live .eyebrow i{width:7px;height:7px;border-radius:99px;background:var(--green);box-shadow:0 0 0 4px rgba(123,207,70,.25);animation:beat 1.6s ease infinite}
+@keyframes beat{50%{box-shadow:0 0 0 8px rgba(123,207,70,0)}}
+.live .h2 .mute{color:var(--ink-4)}
+.live-list{margin:24px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.live-list a{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--night-line);font-family:var(--font-mono);font-size:12.5px;color:var(--night-text);transition:color .2s}
+.live-list a:hover{color:var(--white)}
+.live-list a span{color:var(--green)}
+.live .btn{margin-top:30px}
+.cols{position:relative;height:clamp(460px,48vw,640px);display:grid;grid-template-columns:1fr 1fr;gap:14px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
+.col{display:flex;flex-direction:column;animation:colUp 46s linear infinite;will-change:transform}
+.col.down{animation-name:colDown;animation-duration:52s}
+.cols:hover .col{animation-play-state:paused}
+.col .browser{margin-bottom:14px;border:0;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.col .chrome{height:24px;background:var(--night-2);border-color:var(--night-line)}
+.col .chrome span{background:rgba(255,255,255,.06);color:var(--night-text);font-size:9px}
+.col .chrome i{background:rgba(255,255,255,.18)}
+.col .browser img{aspect-ratio:16/10;object-fit:cover;object-position:top center}
+@keyframes colUp{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes colDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.endnote{margin-top:clamp(64px,8vw,100px);padding-block:22px 120px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);border-top:1px solid var(--line)}
+
+/* ---------- STICKY ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:center;align-items:center;gap:10px;padding:0 var(--gut-r) calc(18px + env(safe-area-inset-bottom,0px)) var(--gut-l);pointer-events:none;transform:translateY(140%);transition:transform .4s var(--ease)}
+.sticky.on{transform:none}
+.sticky>*{pointer-events:auto;box-shadow:0 18px 44px rgba(10,12,18,.28)}
+.sticky .btn-ink{font-size:15px}
+.sticky .price-hint{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--green);font-weight:500}
+.wa{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06240F;font-weight:800;font-size:15px;padding:13px 18px;border-radius:99px;border:0;cursor:pointer}
+.wa svg{width:20px;height:20px}
+
+/* ---------- MODAL ---------- */
+.modal{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) var(--gut-r) calc(16px + env(safe-area-inset-bottom,0px)) var(--gut-l)}
+.modal[hidden]{display:none!important}
+.scrim{position:absolute;inset:0;background:rgba(10,12,18,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .25s ease}
+@keyframes fade{from{opacity:0}}
+.sheet{position:relative;width:100%;max-width:520px;max-height:100%;overflow:auto;background:var(--white);border-radius:28px;padding:clamp(22px,4vw,34px);box-shadow:0 50px 120px rgba(10,12,18,.35);animation:pop .4s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:99px;border:0;background:var(--soft);cursor:pointer;font-size:20px;color:var(--ink)}
+.plan-pill{display:inline-flex;gap:8px;align-items:center;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--blue-50);color:var(--blue);padding:7px 11px;border-radius:99px}
+.sheet h3{margin-top:14px;font-size:clamp(26px,3vw,32px);font-weight:800;letter-spacing:-.04em;line-height:1.05;padding-right:30px}
+.sheet .sub{margin:8px 0 0;color:var(--ink-3);font-size:15px}
+.fields{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-size:13.5px;font-weight:700}
+.f label small{font-weight:500;color:var(--ink-5)}
+.f input,.f select{width:100%;font:inherit;font-size:15px;font-weight:600;color:var(--ink);background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:12px 13px;outline:0;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+.f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
+.f input:focus,.f select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(20,86,229,.14)}
+.f.bad input,.f.bad select{border-color:var(--red)}
+.f .msg{font-size:12.5px;color:var(--red);display:none}
+.f.bad .msg{display:block}
+.sheet form .btn{margin-top:22px;width:100%;justify-content:space-between}
+.fine{margin:12px 0 0;font-size:12.5px;color:var(--ink-4);text-align:center}
+.done{text-align:left}
+.done .ok{width:54px;height:54px;border-radius:99px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800}
+.done h3{margin-top:18px}
+.done .btn{margin-top:22px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1100px){
+  .tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .checks{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:980px){
+  .hero-grid,.case,.vs,.two,.inhouse,.live-in{grid-template-columns:minmax(0,1fr)}
+  .race{max-width:620px;width:100%}
+  .reel{height:auto!important}
+  .reel-sticky{position:relative;height:auto;padding-block:0}
+  .track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;padding-bottom:12px;scrollbar-width:none;padding-left:var(--gut-l);scroll-padding-left:var(--gut-l)}
+  .track::-webkit-scrollbar{display:none}
+  .card{width:min(82vw,520px);scroll-snap-align:start}
+  .reel-bar{display:none}
+  .case-r{min-height:0}
+  .cols{height:440px}
+}
 @media (max-width:640px){
-[data-shell]{padding:0 !important}
-[data-shell]>div{border-radius:0 !important}
-[data-sec],[data-sec-wide]{padding-top:72px !important}
-[data-sec-wide]{padding-left:8px !important;padding-right:8px !important}
-[data-hero-h1]{font-size:clamp(38px,11vw,52px) !important}
-[data-hero-form]{flex-wrap:wrap !important;border-radius:22px !important;padding:8px !important}
-[data-hero-form]>span{display:none !important}
-[data-hero-form] input{padding:10px 12px !important;flex-basis:100% !important}
-[data-hero-form] button{width:100% !important;justify-content:space-between !important}
-[data-hero-stats]{gap:20px 28px !important}
-[data-stat-num]{font-size:32px !important}
-[data-hero-vis]{height:400px !important;border-radius:24px !important}
-[data-cmp] > div{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr) !important}
-[data-cmp] span{padding:12px 10px !important;font-size:13px !important}
-[data-nav-cta]{display:none !important}
-[data-sticky]{width:calc(100% - 24px);justify-content:space-between}
-h2{letter-spacing:-.04em !important}
+  .partner{font-size:9px;padding:7px 10px}
+  .hero h1{font-size:clamp(40px,12vw,56px)}
+  .hero-ctas .btn{flex:1 1 100%;justify-content:space-between}
+  .hero-ctas .btn-line{justify-content:center}
+  .stat b{font-size:28px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .lane-tag small{display:none}
+  .race .phone{aspect-ratio:9/19.5}
+  .race .offer,.race .p-price s{display:none}
+  .race .p-title{font-size:11px}
+  .atc{font-size:10px;padding:9px 4px}
+  .plan-pill{margin-right:44px;font-size:9.5px}
+  .pages{flex-wrap:nowrap}
+  .pages button{flex:1;font-size:12px;padding:8px 4px;white-space:nowrap}
+  .promise{display:grid;grid-template-columns:1fr 1fr}
+  .promise>span{font-size:13px;padding:9px 11px;gap:6px;line-height:1.3}
+  .audit .btn{width:100%;justify-content:space-between}
+  .us .stage{height:auto}
+  .race{border-radius:24px}
+  .phone{border-width:4px;border-radius:20px}
+  .meter b{font-size:16px}
+  .lane-meter{grid-template-columns:1fr}
+  .stage{height:300px}
+  .us .stage{grid-template-columns:1fr}
+  .code{display:none}
+  .them .stage{grid-template-columns:76px 1fr}
+  .errs{left:84px}
+  .plist{grid-template-columns:1fr}
+  .tiers,.checks,.fields,.live-list{grid-template-columns:minmax(0,1fr)}
+  .card{width:86vw}
+  .mob{width:26%;right:-4px}
+  .sticky{justify-content:stretch;gap:8px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .sticky .btn-ink{flex:1;justify-content:space-between;padding-left:18px}
+  .sticky .price-hint{display:none}
+  .sticky .wa span{display:none}
+  .sticky .wa{padding:13px}
+  .cols{height:400px;gap:10px}
+  .col .browser{margin-bottom:10px}
+  .col .chrome{height:18px}
+  .col .chrome span{display:none}
 }
-@keyframes slWord{0%{opacity:0;transform:translateY(.4em);filter:blur(6px)}100%{opacity:1;transform:none;filter:none}}
-@keyframes slPop{0%{opacity:0;transform:translateY(16px) scale(.96)}100%{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}html{scroll-behavior:auto}}
 </style>
-</helmet>
-<div data-shell style="padding:12px;font-family:var(--font-sans);color:#0A0C12">
-<div style="max-width:1440px;margin:0 auto;background:#FFFFFF;border-radius:24px;box-shadow:0 1px 2px rgba(10,12,18,.04),0 20px 60px rgba(10,12,18,.06);overflow:clip">
 
-<nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px clamp(18px,3vw,36px);background:rgba(255,255,255,.84);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(225,229,236,.6)">
-<a href="#top" style="display:flex"><img src="assets/logo-horizontal-dark.png" alt="Rabiro" style="height:26px;display:block"></a>
-<div data-desk style="display:flex;gap:2px">
-<a href="#services" style="color:#262B37;font-size:15px;font-weight:600;padding:9px 14px;border-radius:99px" style-hover="background:#F6F6F8;color:#0A0C12">Services</a>
-<a href="#work" style="color:#262B37;font-size:15px;font-weight:600;padding:9px 14px;border-radius:99px" style-hover="background:#F6F6F8;color:#0A0C12">Work</a>
-<a href="#process" style="color:#262B37;font-size:15px;font-weight:600;padding:9px 14px;border-radius:99px" style-hover="background:#F6F6F8;color:#0A0C12">Process</a>
-<a href="#pricing" style="color:#262B37;font-size:15px;font-weight:600;padding:9px 14px;border-radius:99px" style-hover="background:#F6F6F8;color:#0A0C12">Pricing</a>
-<a href="#faq" style="color:#262B37;font-size:15px;font-weight:600;padding:9px 14px;border-radius:99px" style-hover="background:#F6F6F8;color:#0A0C12">FAQ</a>
-</div>
-<a data-nav-cta href="#audit" style="display:flex;align-items:center;gap:10px;background:#0A0C12;color:#FFFFFF;font-size:14px;font-weight:700;padding:6px 6px 6px 18px;border-radius:99px" style-hover="background:#262B37;color:#FFFFFF">Free store audit<span style="width:30px;height:30px;border-radius:99px;background:#7BCF46;color:#0A0C12;display:flex;align-items:center;justify-content:center">→</span></a>
-<button data-mob type="button" onClick="{{ toggleMenu }}" aria-label="Menu" aria-expanded="{{ menuOpen }}" style="display:none;appearance:none;border:0;cursor:pointer;width:44px;height:44px;border-radius:99px;background:#0A0C12;color:#FFFFFF;align-items:center;justify-content:center;flex-direction:column;gap:5px"><span style="width:16px;height:1.5px;background:#FFFFFF;border-radius:2px"></span><span style="width:16px;height:1.5px;background:#FFFFFF;border-radius:2px"></span></button>
-</nav>
-<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-<div style="position:fixed;inset:0;z-index:80;background:#FFFFFF;display:flex;flex-direction:column;padding:18px 20px 28px;animation:slPop .38s cubic-bezier(.16,1,.3,1)">
-<div style="display:flex;align-items:center;justify-content:space-between"><img src="assets/logo-horizontal-dark.png" alt="Rabiro" style="height:24px"><button type="button" onClick="{{ toggleMenu }}" aria-label="Close menu" style="appearance:none;border:0;cursor:pointer;width:44px;height:44px;border-radius:99px;background:#F6F6F8;color:#0A0C12;font-size:20px">×</button></div>
-<div style="margin-top:40px;display:flex;flex-direction:column">
-<sc-for list="{{ mobLinks }}" as="l" hint-placeholder-count="5"><a href="{{ l.href }}" onClick="{{ closeMenu }}" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid #EEF1F5;color:#0A0C12;font-size:30px;font-weight:800;letter-spacing:-.04em" style-hover="color:#1456E5"><span>{{ l.t }}</span><span style="font-family:var(--font-mono);font-size:11px;color:#99A1B1">{{ l.n }}</span></a></sc-for>
-</div>
-<a href="#audit" onClick="{{ closeMenu }}" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;background:#1456E5;color:#FFFFFF;font-size:16px;font-weight:700;padding:8px 8px 8px 22px;border-radius:99px" style-hover="color:#FFFFFF">Get a free store audit<span style="width:40px;height:40px;border-radius:99px;background:#7BCF46;color:#0A0C12;display:flex;align-items:center;justify-content:center">→</span></a>
-<span style="margin-top:14px;text-align:center;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#99A1B1">150 Shopify stores · Official Partner</span>
-</div>
-</sc-if>
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <img src="logo-horizontal-dark.png" alt="Rabiro">
+      <span class="partner"><i></i>Official Shopify Partner</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Shopify stores<br>built to <span class="b">sell</span>,<br><em>not just sit.</em></h1>
+        <p class="hero-sub">Custom-coded, CRO-first and mobile-first. From design to launch, in 3–5 weeks.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-blue" href="#pricing">See plans &amp; pricing<span class="arr">→</span></a>
+          <a class="btn btn-line" href="#work">See our work</a>
+        </div>
+        <ul class="hero-ticks">
+          <li><span class="tick">✓</span>15-day first draft</li>
+          <li><span class="tick">✓</span>You own the code</li>
+          <li><span class="tick">✓</span>30-day post-launch support</li>
+        </ul>
+        <div class="hero-stats">
+          <div class="stat"><b>150</b><span>Stores shipped</span></div>
+          <div class="stat"><b>3–5<small style="font-size:16px;font-weight:600;letter-spacing:0"> wks</small></b><span>Brief to launch</span></div>
+          <div class="stat"><b>100%</b><span>In-house team</span></div>
+        </div>
+      </div>
 
-<section id="top" style="position:relative;overflow:hidden;padding:clamp(48px,7vw,88px) clamp(18px,3vw,36px) 40px">
-<div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:48px;align-items:center">
-<div>
-<span data-rv style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#262B37;background:#F6F6F8;padding:8px 14px 8px 10px;border-radius:99px"><span style="display:inline-flex;align-items:center;gap:6px;background:#0A0C12;color:#FFFFFF;padding:4px 9px;border-radius:99px"><span style="width:6px;height:6px;border-radius:99px;background:#7BCF46"></span>150</span>Shopify stores shipped · Official Partner</span>
-<h1 data-rv data-hero-h1 style="margin:24px 0 0;font-size:clamp(44px,6.4vw,92px);font-weight:800;letter-spacing:-.052em;line-height:.94">Your store looks good.<br><span style="color:#99A1B1">Now make it</span> {{ heroWord }}</h1>
-<p data-rv style="margin:24px 0 0;font-size:18px;line-height:1.6;color:#515869;max-width:46ch">Custom Shopify builds engineered for conversion, speed and mobile, by one in-house team that ships in weeks, not quarters.</p>
-<form data-rv data-hero-form onSubmit="{{ onHeroAudit }}" style="margin-top:30px;max-width:560px;display:flex;align-items:center;gap:6px;background:#FFFFFF;border:1.5px solid #0A0C12;border-radius:99px;padding:6px 6px 6px 22px;box-shadow:0 16px 40px rgba(20,86,229,.14)">
-<span style="font-family:var(--font-mono);font-size:13px;color:#99A1B1">https://</span>
-<input name="heroUrl" aria-label="Your store URL" placeholder="yourstore.com" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:var(--font-sans);font-size:16px;font-weight:600;color:#0A0C12;padding:10px 0">
-<button type="submit" style="appearance:none;border:0;cursor:pointer;flex:none;display:inline-flex;align-items:center;gap:10px;background:#1456E5;color:#FFFFFF;font-family:var(--font-sans);font-size:15px;font-weight:700;padding:6px 6px 6px 18px;border-radius:99px" style-hover="background:#0F45BC">Audit my store<span style="width:34px;height:34px;border-radius:99px;background:#7BCF46;color:#0A0C12;display:flex;align-items:center;justify-content:center">→</span></button>
-</form>
-<div data-rv style="margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;font-size:13.5px;color:#515869">
-<span style="display:flex;align-items:center;gap:6px"><span style="color:#4E9126">✓</span>Free, no call needed</span>
-<span style="display:flex;align-items:center;gap:6px"><span style="color:#4E9126">✓</span>Reply on WhatsApp in 48h</span>
-<a href="#work" style="font-weight:700;color:#0A0C12;border-bottom:1.5px solid #0A0C12" style-hover="color:#1456E5">or see the work →</a>
+      <div class="race" aria-label="Animation: a template store loading slowly next to a Rabiro custom store converting">
+        <div class="race-head"><span>Same product. Same traffic.</span><b id="raceClock">00.0s</b></div>
+        <div class="lanes">
+          <div class="lane bad">
+            <div class="lane-tag">Template store <small>Drag &amp; drop</small></div>
+            <div class="phone">
+              <div class="p-bar"><i id="badBar"></i></div>
+              <div class="p-nav"><i style="width:34px"></i><i style="width:20px"></i></div>
+              <div class="p-body" id="badBody">
+                <div class="sk p-img"></div>
+                <div class="sk" style="height:10px;width:70%"></div>
+                <div class="sk" style="height:10px;width:40%"></div>
+                <div class="sk" style="height:46px"></div>
+                <div class="sk" style="height:46px"></div>
+              </div>
+              <div class="toast err" id="badToast">✕ <span id="badToastTxt">Add to cart below the fold</span></div>
+            </div>
+            <div class="lane-meter">
+              <div class="meter"><span>Load</span><b id="badLoad">0.0s</b></div>
+              <div class="meter"><span>Orders</span><b id="badOrders">0</b></div>
+            </div>
+          </div>
+          <div class="lane good">
+            <div class="lane-tag">Rabiro build <small>Custom code</small></div>
+            <div class="phone">
+              <div class="p-bar"><i id="goodBar"></i></div>
+              <div class="p-nav"><i style="width:34px;background:var(--ink)"></i><i style="width:20px"></i></div>
+              <div class="p-body">
+                <div class="p-img"></div>
+                <div class="p-title">Oversized heavyweight tee</div>
+                <div class="p-price">₹1,299<s>₹1,799</s></div>
+                <div class="sizes" id="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                <div class="offer">Buy 2, get 10% off</div>
+              </div>
+              <div class="atc" id="atc">Add to cart · ₹1,299</div>
+              <div class="toast" id="goodToast">✓ Added to cart</div>
+            </div>
+            <div class="lane-meter">
+              <div class="meter"><span>Load</span><b id="goodLoad">0.0s</b></div>
+              <div class="meter"><span>Orders</span><b id="goodOrders">0</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="race-foot"><b>Same products. Different store.</b><span>Illustrative simulation</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="logos" aria-label="Brands we've built for">
+  <div class="logos-row" id="logosRow"></div>
 </div>
-<div data-rv data-hero-stats style="margin-top:40px;padding-top:24px;border-top:1px solid #EEF1F5;display:flex;flex-wrap:wrap;gap:28px 44px">
-<div><span data-stat-num style="display:block;font-size:40px;font-weight:200;letter-spacing:-.05em;line-height:1">150</span><span style="display:block;margin-top:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6D7585">Stores built</span></div>
-<div><span data-stat-num style="display:block;font-size:40px;font-weight:200;letter-spacing:-.05em;line-height:1">15<span style="font-size:18px;font-weight:600;letter-spacing:0"> days</span></span><span style="display:block;margin-top:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6D7585">To first draft</span></div>
-<div><span data-stat-num style="display:block;font-size:40px;font-weight:200;letter-spacing:-.05em;line-height:1">0</span><span style="display:block;margin-top:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6D7585">Outsourced lines</span></div>
-</div>
-</div>
-<div data-rv data-hero-vis style="position:relative;height:clamp(460px,48vw,640px);border-radius:32px;background:#07080C;overflow:hidden">
-<div style="position:absolute;right:-30%;top:-30%;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(20,86,229,.55),rgba(20,86,229,0));pointer-events:none"></div>
-<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(circle at 60% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 60% 40%,#000,transparent 75%)"></div>
-<div data-hero-tilt style="position:absolute;inset:0;transition:transform .6s cubic-bezier(.16,1,.3,1);-webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)">
-<div style="position:absolute;left:50%;top:50%;width:0;height:0;perspective:1800px">
-<div style="position:absolute;transform-style:preserve-3d;transform:rotateX(54deg) rotateZ(-14deg)">
-<sc-for list="{{ deck }}" as="d" hint-placeholder-count="8">
-<div style="position:absolute;left:-210px;top:-138px;width:420px;height:276px;border-radius:14px;overflow:hidden;background:#FFFFFF;box-shadow:0 40px 90px rgba(0,0,0,.55);animation:slDeck 32s linear infinite;animation-delay:{{ d.delay }};will-change:transform">
-<div style="height:22px;display:flex;align-items:center;gap:5px;padding:0 10px;border-bottom:1px solid #EEF1F5"><span style="width:6px;height:6px;border-radius:99px;background:#E1E5EC"></span><span style="width:6px;height:6px;border-radius:99px;background:#E1E5EC"></span><span style="width:6px;height:6px;border-radius:99px;background:#E1E5EC"></span><span style="margin-left:6px;font-family:var(--font-mono);font-size:8px;color:#99A1B1">{{ d.domain }}</span></div>
-<img src="{{ d.shot }}" alt="{{ d.name }}" loading="lazy" style="width:100%;height:254px;object-fit:cover;object-position:top;display:block;background:#F6F6F8">
-</div>
-</sc-for>
-</div>
-</div>
-</div>
-<span style="position:absolute;left:20px;top:20px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#FFFFFF;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:99px"><span style="width:6px;height:6px;border-radius:99px;background:#7BCF46;box-shadow:0 0 0 4px rgba(123,207,70,.25)"></span>Live client stores</span>
-<div style="position:absolute;left:20px;right:20px;bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#FFFFFF;border-radius:18px;padding:14px 16px;box-shadow:0 20px 50px rgba(0,0,0,.4)">
-<div style="min-width:0"><span style="display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6D7585">Built by Rabiro</span><span data-hero-name style="display:block;margin-top:4px;font-size:18px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .22s ease">{{ heroFirst }}</span></div>
-<a href="#work" style="flex:none;display:inline-flex;align-items:center;gap:8px;background:#0A0C12;color:#FFFFFF;font-size:13.5px;font-weight:700;padding:10px 14px;border-radius:99px" style-hover="background:#262B37;color:#FFFFFF">See all 150 →</a>
-</div>
-</div>
-</div>
+
+<!-- ============ WORK REEL ============ -->
+<section class="reel" id="work">
+  <div class="reel-sticky">
+    <div class="wrap reel-head">
+      <div>
+        <span class="eyebrow">Our work</span>
+        <h2 class="h2">Scroll through <span class="mute">our work.</span></h2>
+      </div>
+      <span class="reel-count"><b id="reelNow">01</b><span> / <span id="reelTotal">09</span></span></span>
+    </div>
+    <div class="track" id="track"></div>
+    <div class="wrap"><div class="reel-bar"><i id="reelBar"></i></div></div>
+  </div>
 </section>
 
-<section style="padding:30px 0 20px;overflow:hidden">
-<div style="display:flex;width:max-content;animation:slMarq 60s linear infinite">
-<sc-for list="{{ clientLoop }}" as="c" hint-placeholder-count="16">
-<span style="flex:none;display:flex;align-items:center;height:56px;padding:0 24px;margin-right:10px;border-radius:14px;background:#F6F6F8;font-size:16px;font-weight:800;letter-spacing:-.03em;color:#6D7585;white-space:nowrap">{{ c }}</span>
-</sc-for>
-</div>
+<!-- ============ CASE STUDY ============ -->
+<section class="sec" id="case">
+  <div class="wrap">
+    <span class="eyebrow">Stores we've shipped</span>
+    <h2 class="h2">Before Rabiro. <span class="mute">After Rabiro.</span></h2>
+    <!-- REPLACE: metric values below are placeholders. Swap in Wearduds' real Shopify analytics before running ads (edit CASE in the script). -->
+    <article class="case" id="caseCard" style="margin-top:36px">
+      <div class="case-l">
+        <span class="eyebrow">Case study · Streetwear, India</span>
+        <h3>Wearduds</h3>
+        <p>A custom Shopify build across 4,700+ products: a campaign-led homepage, filter-first collections and product pages with Buy-2 and prepaid offers right above the size picker.</p>
+        <div class="metrics" id="metrics"></div>
+        <div class="legend"><span><i></i>Before</span><span><i></i>After</span></div>
+        <a class="btn btn-white" href="https://www.wearduds.com/" target="_blank" rel="noopener" style="margin-top:26px">View live store<span class="arr">↗</span></a>
+      </div>
+      <div class="case-r">
+        <div class="pages" role="tablist" aria-label="Wearduds pages">
+          <button role="tab" class="on" data-pg="0">Homepage</button>
+          <button role="tab" data-pg="1">Collection</button>
+          <button role="tab" data-pg="2">Product page</button>
+        </div>
+        <div class="shot-wrap">
+          <div class="browser">
+            <div class="chrome"><i></i><i></i><i></i><span id="pgUrl">wearduds.com</span></div>
+            <div class="stack" id="pgD">
+              <img class="on" src="shots/wearduds-d.jpg" alt="Wearduds homepage">
+              <img src="shots/wd-collection-d.jpg" alt="Wearduds best-seller collection page">
+              <img src="shots/wd-product-d.jpg" alt="Wearduds product page with Buy-2 offer">
+            </div>
+          </div>
+          <div class="mob"><div class="stack" id="pgM">
+            <img class="on" src="shots/wearduds-m.jpg" alt="Wearduds homepage on mobile">
+            <img src="shots/wd-collection-m.jpg" alt="Wearduds collection on mobile">
+            <img src="shots/wd-product-m.jpg" alt="Wearduds product page on mobile">
+          </div></div>
+        </div>
+        <p class="pg-cap" id="pgCap">Campaign-led hero, drops up front.</p>
+      </div>
+    </article>
+  </div>
 </section>
 
-<section style="padding:100px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Who it's for</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1;max-width:18ch">Built for brands that <span style="color:#99A1B1">sell online seriously.</span></h2>
-<div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px">
-<sc-for list="{{ audience }}" as="a" hint-placeholder-count="6">
-<div data-rv style="border-radius:20px;background:{{ a.bg }};color:{{ a.fg }};padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between">
-<span style="font-family:var(--font-mono);font-size:11px;opacity:.7">{{ a.n }}</span>
-<span style="font-size:20px;font-weight:800;letter-spacing:-.025em;line-height:1.15">{{ a.t }}</span>
-</div>
-</sc-for>
-</div>
-</div>
+<!-- ============ COMPARE ============ -->
+<section class="sec" id="different">
+  <div class="wrap">
+    <span class="eyebrow">Why our builds are different</span>
+    <h2 class="h2">Custom-coded <span class="mute">vs drag-and-drop.</span></h2>
+    <div class="vs">
+      <div class="vs-col us">
+        <div class="vs-label"><h3>Rabiro build</h3><small>Custom code</small></div>
+        <div class="stage">
+          <div class="code" id="code"></div>
+          <div class="pdp">
+            <div class="p-img hl" data-hl="0"><span class="pin">Gallery</span></div>
+            <div class="p-title">Oversized heavyweight tee</div>
+            <div class="sizes hl" data-hl="1"><span>S</span><span class="on">M</span><span>L</span><span>XL</span><span class="pin">Size picker</span></div>
+            <div class="offer hl" data-hl="2">Buy 2, get 10% off<span class="pin">Offer</span></div>
+            <div class="atc2 hl" data-hl="3">Add to cart<span class="pin">Sticky ATC</span></div>
+            <div class="fbt hl" data-hl="4"><i></i><i></i>Complete the look · +₹899<span class="pin">Upsell</span></div>
+          </div>
+        </div>
+        <ul class="plist">
+          <li><span class="ok">✓</span>CRO-built product pages</li>
+          <li><span class="ok">✓</span>Mobile-first, thumb-friendly UI</li>
+          <li><span class="ok">✓</span>Handles sale-day traffic</li>
+          <li><span class="ok">✓</span>Loads in under 2 seconds</li>
+          <li><span class="ok">✓</span>Bundles, Buy-2 offers, upsells</li>
+          <li><span class="ok">✓</span>Designed only for your brand</li>
+        </ul>
+      </div>
+      <div class="vs-col them">
+        <div class="vs-label"><h3>Basic theme build</h3><small>Drag &amp; drop</small></div>
+        <div class="stage" id="ddStage">
+          <div class="blocks"><span>Hero banner</span><span>Product grid</span><span>Image + text</span><span>Reviews</span><span>Newsletter</span></div>
+          <div class="canvas" id="ddCanvas"></div>
+          <div class="ghost" id="ghost">Block</div>
+          <svg class="cursor" id="cursor" viewBox="0 0 14 14"><path d="M1 1l11 5-5 1.5L5.5 13z" fill="#0A0C12" stroke="#fff" stroke-width="1"/></svg>
+          <div class="errs" id="errs"></div>
+        </div>
+        <ul class="plist">
+          <li><span class="no">✕</span>No CRO, add to cart buried</li>
+          <li><span class="no">✕</span>Mobile UI breaks</li>
+          <li><span class="no">✕</span>Crashes on peak traffic</li>
+          <li><span class="no">✕</span>12+ apps slow every page</li>
+          <li><span class="no">✕</span>Same theme as 10,000 stores</li>
+          <li><span class="no">✕</span>Fixed layouts, hard to change</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="services" data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto">
-<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
-<div><span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Services</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Everything your store <span style="color:#99A1B1">runs on.</span></h2></div>
-<p data-rv style="margin:0;font-size:16px;line-height:1.6;color:#515869;max-width:44ch">Shopify first, custom where it earns it. Built by people who also run traffic to it.</p>
-</div>
-<div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:12px">
-<sc-for list="{{ services }}" as="g" hint-placeholder-count="4">
-<div data-rv style="border-radius:22px;border:1px solid #E1E5EC;padding:24px;display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;justify-content:space-between"><h3 style="margin:0;font-size:21px;font-weight:800;letter-spacing:-.025em">{{ g.t }}</h3><span style="width:12px;height:12px;border-radius:99px;background:{{ g.c }}"></span></div>
-<div style="margin-top:18px;display:flex;flex-direction:column;border-top:1px solid #EEF1F5">
-<sc-for list="{{ g.items }}" as="i" hint-placeholder-count="5"><span style="padding:11px 0;border-bottom:1px solid #EEF1F5;font-size:15px;color:#262B37">{{ i }}</span></sc-for>
-</div>
-</div>
-</sc-for>
-</div>
-</div>
+<!-- ============ WHAT WE BUILD ============ -->
+<section class="sec">
+  <div class="wrap">
+    <span class="eyebrow">What we build</span>
+    <h2 class="h2">Design that sells. <span class="mute">Features that fit.</span></h2>
+    <div class="two">
+      <div class="feat hot">
+        <span class="in"></span>
+        <div class="feat-top"><h3><i></i>Design &amp; CRO</h3><span class="feat-badge">Where sales happen</span></div>
+        <p class="feat-note">Every page is designed around one job: getting the visitor to add to cart.</p>
+        <div class="chips">
+          <span>Custom animations</span><span>Cross-sell &amp; upsell</span><span>Custom customer journey</span><span>Bundles &amp; Buy-2 offers</span><span>Sticky add to cart</span><span>Size &amp; fit guides</span>
+        </div>
+      </div>
+      <div class="feat">
+        <h3><i></i>Custom features</h3>
+        <div class="chips">
+          <span>Custom Shopify apps</span><span>Product quizzes</span><span>Subscriptions</span><span>Loyalty &amp; rewards</span><span>Multi-currency stores</span><span>ERP &amp; WMS integrations</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section data-sec-wide style="padding:110px clamp(10px,1.5vw,20px) 0">
-<div style="border-radius:28px;background:#0A0C12;color:#FFFFFF;padding:clamp(40px,6vw,80px) clamp(18px,4vw,60px)">
-<div style="max-width:1280px;margin:0 auto">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#99A1B1">Why Rabiro</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1;max-width:16ch">Why our builds <span style="color:#6D7585">are different.</span></h2>
-<div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:rgba(255,255,255,.1);border-radius:20px;overflow:hidden">
-<sc-for list="{{ diffs }}" as="d" hint-placeholder-count="6">
-<div data-rv style="background:#0A0C12;padding:28px">
-<span style="display:inline-flex;width:34px;height:34px;border-radius:99px;background:{{ d.c }};color:#0A0C12;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700">{{ d.n }}</span>
-<h3 style="margin:20px 0 0;font-size:21px;font-weight:800;letter-spacing:-.025em">{{ d.t }}</h3>
-<p style="margin:8px 0 0;font-size:15px;line-height:1.55;color:#A8B0BF">{{ d.d }}</p>
-</div>
-</sc-for>
-</div>
-</div>
-</div>
+<!-- ============ IN-HOUSE ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="inhouse">
+      <div>
+        <span class="eyebrow">One team, start to finish</span>
+        <h2 class="h2">Everything <span class="g">in-house.</span></h2>
+        <p class="lead" style="color:var(--ink-2)">No freelancers. No outsourcing. One team owns your store.</p>
+      </div>
+      <ul class="checks">
+        <li><i>✓</i>Strategy</li>
+        <li><i>✓</i>UI/UX design</li>
+        <li><i>✓</i>Shopify development</li>
+        <li><i>✓</i>Custom apps</li>
+        <li><i>✓</i>QA &amp; launch</li>
+        <li><i>✓</i>Post-launch CRO</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section id="work" data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto">
-<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
-<div><span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Selected Shopify work</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Stores we've <span style="color:#99A1B1">shipped.</span></h2></div>
-<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#99A1B1">150 stores built</span>
-</div>
-
-<article data-rv style="margin-top:40px;border-radius:28px;background:#0D3893;overflow:hidden">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:0">
-<div style="padding:clamp(24px,4vw,48px);color:#FFFFFF;display:flex;flex-direction:column">
-<span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.9">Case study · {{ feat.industry }}</span>
-<h3 style="margin:14px 0 0;font-size:clamp(30px,3.4vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1">{{ feat.name }}</h3>
-<p style="margin:14px 0 0;font-size:16px;line-height:1.6;color:rgba(255,255,255,.94);max-width:44ch">{{ feat.line }}</p>
-<div style="margin-top:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-<sc-for list="{{ caseMetrics }}" as="m" hint-placeholder-count="4">
-<div style="border-radius:16px;background:rgba(255,255,255,.14);padding:14px"><span style="display:block;font-size:22px;font-weight:800;letter-spacing:-.03em">[add]</span><span style="display:block;margin-top:4px;font-size:12.5px;opacity:.9">{{ m }}</span></div>
-</sc-for>
-</div>
-<a href="{{ feat.url }}" target="_blank" rel="noopener" style="margin-top:24px;align-self:flex-start;display:inline-flex;background:#FFFFFF;color:#0A0C12;font-size:14px;font-weight:700;padding:12px 18px;border-radius:99px" style-hover="background:#0A0C12;color:#FFFFFF">View live store →</a>
-</div>
-<div style="position:relative;min-height:420px;padding:clamp(20px,3vw,40px) clamp(20px,3vw,40px) 0">
-<div style="height:100%;border-radius:16px 16px 0 0;overflow:hidden;background:#FFFFFF;box-shadow:0 30px 80px rgba(120,30,0,.35)">
-<div style="height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid #EEF1F5"><span style="width:8px;height:8px;border-radius:99px;background:#E1E5EC"></span><span style="width:8px;height:8px;border-radius:99px;background:#E1E5EC"></span><span style="width:8px;height:8px;border-radius:99px;background:#E1E5EC"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#6D7585">{{ feat.domain }}</span></div>
-<img src="{{ feat.wide }}" alt="{{ feat.name }}" loading="lazy" style="width:100%;height:calc(100% - 30px);min-height:390px;object-fit:cover;object-position:top;display:block;background:#F6F6F8">
-</div>
-</div>
-</div>
-</article>
-
-</div>
+<!-- ============ PRICING ============ -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <span class="eyebrow">Plans</span>
+    <h2 class="h2">Pick your build. <span class="mute">We'll take it from there.</span></h2>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tn">01</span>
+        <h3>Development</h3>
+        <p class="price"><small>Starts at</small>₹50,000</p>
+        <p class="for">You have the design. We build it on Shopify.</p>
+        <ul><li>Figma to Shopify</li><li>Custom-coded sections</li><li>Responsive build &amp; QA</li></ul>
+        <button class="btn btn-ink" data-plan="development">Start development<span class="arr">→</span></button>
+      </div>
+      <div class="tier hot">
+        <span class="tn">02</span><span class="badge">Most picked</span>
+        <h3>Custom Shopify store</h3>
+        <p class="price"><small>Starts at</small>₹1,00,000</p>
+        <p class="for">Design plus development, built for conversion.</p>
+        <ul><li>Custom UI/UX design</li><li>CRO on every page</li><li>Speed &amp; technical SEO</li><li>30-day support</li></ul>
+        <button class="btn btn-white" data-plan="custom">Start my store<span class="arr">→</span></button>
+      </div>
+      <div class="tier">
+        <span class="tn">03</span>
+        <h3>Advanced commerce</h3>
+        <p class="price"><small>Starts at</small>₹1,50,000</p>
+        <p class="for">Custom flows and features for growing brands.</p>
+        <ul><li>Everything in Custom</li><li>Quizzes &amp; bundles</li><li>Loyalty &amp; subscriptions</li><li>Custom apps</li></ul>
+        <button class="btn btn-ink" data-plan="advanced">Go advanced<span class="arr">→</span></button>
+      </div>
+      <div class="tier dark">
+        <span class="tn">04</span>
+        <h3>Enterprise / Global</h3>
+        <p class="price"><small>Scoped per project</small>Custom quote</p>
+        <p class="for">Multi-market stores and complex integrations.</p>
+        <ul><li>International rollout</li><li>ERP / WMS integrations</li><li>Shoot, design &amp; build</li></ul>
+        <button class="btn btn-white" data-plan="enterprise">Talk to us<span class="arr">→</span></button>
+      </div>
+    </div>
+    <div class="promise">
+      <span><span class="tick">✓</span>15-day first draft</span>
+      <span><span class="tick">✓</span>2 revision rounds</span>
+      <span><span class="tick">✓</span>30-day post-launch support</span>
+      <span><span class="tick">✓</span>You own the theme &amp; code</span>
+    </div>
+    <div class="audit">
+      <div>
+        <h3>Not sure which plan fits?</h3>
+        <p>Book a 30-minute store audit call: CRO, speed and mobile review for <span class="amt">₹999</span>.</p>
+      </div>
+      <button class="btn btn-blue" data-plan="audit">Book audit call<span class="arr">→</span></button>
+    </div>
+  </div>
 </section>
 
-<section data-hs style="position:relative;height:300vh;margin-top:14px">
-<div data-hs-sticky style="position:sticky;top:74px;height:calc(100vh - 74px);overflow:hidden;display:flex;flex-direction:column;justify-content:center">
-<div style="max-width:1320px;width:100%;margin:0 auto;padding:0 clamp(18px,3vw,36px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
-<div><span style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">More Shopify builds</span>
-<span style="display:block;margin-top:10px;font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-.035em">Scroll through the work.</span></div>
-<span style="font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:#0A0C12"><span data-hs-count>01</span><span style="color:#99A1B1"> / {{ projCount }}</span></span>
-</div>
-<div data-hs-track style="margin-top:20px;display:flex;gap:22px;padding:16px clamp(18px,3vw,36px) 28px;width:max-content;perspective:1600px;will-change:transform">
-<sc-for list="{{ projects }}" as="p" hint-placeholder-count="8">
-<a data-hcard href="{{ p.url }}" target="_blank" rel="noopener" style="flex:none;width:clamp(260px,min(420px,78vw,calc((100vh - 360px) * 1.2)),420px);display:block;color:#0A0C12;transform-style:preserve-3d;will-change:transform" style-hover="color:#0A0C12">
-<div style="position:relative;border-radius:22px;overflow:hidden;background:#FFFFFF;border:1px solid #EEF1F5;box-shadow:0 30px 70px rgba(10,12,18,.12)">
-<div style="height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid #EEF1F5;background:#FBFCFD"><span style="width:8px;height:8px;border-radius:99px;background:#E1E5EC"></span><span style="width:8px;height:8px;border-radius:99px;background:#E1E5EC"></span><span style="width:8px;height:8px;border-radius:99px;background:#E1E5EC"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#6D7585">{{ p.domain }}</span></div>
-<div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#F6F6F8">
-<img data-hshot src="{{ p.shot }}" alt="{{ p.name }}" loading="lazy" style="position:absolute;left:-8%;top:0;width:116%;height:100%;object-fit:cover;object-position:top;display:block;will-change:transform">
-</div>
-<div style="padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px"><h3 style="margin:0;font-size:18px;font-weight:800;letter-spacing:-.025em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</h3><span style="flex:none;font-size:15px;color:#99A1B1">↗</span></div>
-</div>
-</a>
-</sc-for>
-</div>
-<div data-desk style="max-width:1320px;width:100%;margin:0 auto 18px;padding:0 clamp(18px,3vw,36px);display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;min-height:48px">
-<span data-hs-cap-meta style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#1456E5;transition:opacity .22s ease">{{ capMeta }}</span>
-<span data-hs-cap-line style="flex:1 1 360px;font-size:15px;line-height:1.5;color:#515869;max-width:62ch;transition:opacity .22s ease">{{ capLine }}</span>
-</div>
-<div style="max-width:1320px;width:100%;margin:0 auto;padding:0 clamp(18px,3vw,36px)"><div style="height:3px;border-radius:99px;background:#EEF1F5;overflow:hidden"><div data-hs-bar style="height:100%;width:0%;background:#1456E5;border-radius:99px"></div></div></div>
-</div>
+<!-- ============ LIVE STORES ============ -->
+<section class="live">
+  <div class="wrap live-in">
+    <div>
+      <span class="eyebrow"><i></i>Live client stores</span>
+      <h2 class="h2" style="margin-top:14px">These stores are live <span class="mute">right now.</span></h2>
+      <p class="lead" style="color:var(--night-text)">Open any of them. Then picture yours on this list.</p>
+      <ul class="live-list" id="liveList"></ul>
+      <a class="btn btn-white" href="#pricing">Get your store built<span class="arr">→</span></a>
+    </div>
+    <div class="cols" id="cols" aria-hidden="true"></div>
+  </div>
 </section>
 
-<section id="process" data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Process</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Five steps. <span style="color:#99A1B1">One accountable team.</span></h2>
-<div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px">
-<sc-for list="{{ process }}" as="s" hint-placeholder-count="5">
-<div data-rv style="border-radius:22px;background:#F6F6F8;padding:24px;min-height:240px;display:flex;flex-direction:column">
-<span style="font-size:44px;font-weight:200;letter-spacing:-.05em;line-height:1;color:{{ s.c }}">{{ s.n }}</span>
-<h3 style="margin:auto 0 0;padding-top:28px;font-size:19px;font-weight:800;letter-spacing:-.02em">{{ s.t }}</h3>
-<p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#515869">{{ s.d }}</p>
-</div>
-</sc-for>
-</div>
-</div>
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap" style="max-width:960px">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="h2">Quick answers.</h2>
+    <div class="faq">
+      <details><summary>How long does a build take?<i>+</i></summary><p>3–5 weeks for a full custom store. You get a clickable first draft within 15 days.</p></details>
+      <details><summary>Can you redesign my current Shopify store?<i>+</i></summary><p>Yes. We rebuild existing stores and keep your products, customers and order history.</p></details>
+      <details><summary>Can you move us from WooCommerce, Wix or Magento?<i>+</i></summary><p>Yes. Products, customers and SEO redirects move with you.</p></details>
+      <details><summary>Do we own the code?<i>+</i></summary><p>Yes. The theme lives in your Shopify store and is documented for your team.</p></details>
+      <details><summary>Do you work with brands outside India?<i>+</i></summary><p>Yes. Untapped (London) and House of Baani (Sydney) are both Rabiro builds.</p></details>
+    </div>
+  </div>
+  <div class="wrap"><div class="endnote"><span>© 2026 Rabiro</span><span>Official Shopify Partner · Mohali</span></div></div>
 </section>
 
-<section data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px">
-<div>
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">What's included</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Concrete <span style="color:#99A1B1">deliverables.</span></h2>
-<p data-rv style="margin:18px 0 0;font-size:16px;line-height:1.6;color:#515869;max-width:40ch">Scope varies by tier. This is what a full custom store build covers.</p>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">
-<sc-for list="{{ included }}" as="i" hint-placeholder-count="20">
-<span style="display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:99px;background:#F6F6F8;font-size:14.5px;font-weight:600;color:#262B37"><span style="color:#7BCF46">✓</span>{{ i }}</span>
-</sc-for>
-</div>
-</div>
-</section>
 
-<section id="pricing" data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto">
-<div style="text-align:center">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Investment</span>
-<h2 data-rv style="margin:14px auto 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1;max-width:16ch">Know what to expect <span style="color:#99A1B1">before we talk.</span></h2>
-<p data-rv style="margin:16px auto 0;font-size:16px;line-height:1.6;color:#515869;max-width:52ch">Every project is scoped after the audit. These are the starting points.</p>
-</div>
-<div style="margin:36px auto 0;max-width:760px;background:#F6F6F8;border:1px solid #EEF1F5;border-radius:24px;padding:24px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px">
-<div style="flex:1 1 340px;min-width:0">
-<span style="font-size:14px;color:#515869">Selected price range</span>
-<p style="margin:8px 0 0;font-size:26px;font-weight:800;letter-spacing:-.03em">{{ rangeLabel }}</p>
-<div style="position:relative;height:30px;margin-top:18px">
-<div style="position:absolute;left:15px;right:15px;top:13px;height:4px;border-radius:99px;background:#E1E5EC"></div>
-<div style="position:absolute;top:13px;height:4px;border-radius:99px;background:#1456E5;left:{{ fillLeft }};width:{{ fillWidth }}"></div>
-<div style="position:absolute;top:6px;width:2px;height:18px;border-radius:2px;background:#7BCF46;left:{{ floorLeft }}"></div>
-<input data-rng type="range" aria-label="Minimum budget" min="{{ rMin }}" max="{{ rMax }}" step="{{ rStep }}" value="{{ lo }}" onChange="{{ onLo }}">
-<input data-rng type="range" aria-label="Maximum budget" min="{{ rMin }}" max="{{ rMax }}" step="{{ rStep }}" value="{{ hi }}" onChange="{{ onHi }}">
-</div>
-<div style="margin-top:8px;display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;color:#99A1B1"><span>₹10K</span><span style="color:#4E9126">Builds start ₹50K</span><span>₹5L+</span></div>
-<p style="margin:12px 0 0;font-size:13.5px;color:#515869">{{ fitLabel }}</p>
-</div>
-<a href="#audit" style="display:inline-flex;align-items:center;gap:12px;background:#1456E5;color:#FFFFFF;font-size:15px;font-weight:700;padding:7px 7px 7px 20px;border-radius:99px" style-hover="background:#0F45BC;color:#FFFFFF">Quote this range<span style="width:34px;height:34px;border-radius:99px;background:#7BCF46;color:#0A0C12;display:flex;align-items:center;justify-content:center">→</span></a>
-</div>
-<div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;align-items:stretch">
-<sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
-<div data-rv style="border-radius:24px;background:{{ t.bg }};color:{{ t.fg }};padding:26px 22px;display:flex;flex-direction:column">
-<span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.75">{{ t.n }}</span>
-<h3 style="margin:12px 0 0;font-size:22px;font-weight:800;letter-spacing:-.025em">{{ t.name }}</h3>
-<p style="margin:16px 0 0;font-size:34px;font-weight:800;letter-spacing:-.045em;line-height:1">{{ t.price }}</p>
-<p style="margin:12px 0 0;font-size:14.5px;line-height:1.55;opacity:.85">{{ t.for }}</p>
-<div style="margin:20px 0 24px;padding-top:16px;border-top:1px solid {{ t.rule }};display:flex;flex-direction:column;gap:9px">
-<sc-for list="{{ t.items }}" as="i" hint-placeholder-count="4"><span style="font-size:14px;display:flex;gap:9px"><span>✓</span>{{ i }}</span></sc-for>
-</div>
-<a href="#audit" style="margin-top:auto;display:block;text-align:center;background:{{ t.btnBg }};color:{{ t.btnFg }};font-size:14.5px;font-weight:700;padding:13px;border-radius:99px" style-hover="opacity:.9">{{ t.cta }}</a>
-</div>
-</sc-for>
-</div>
-</div>
-</section>
-
-<section data-sec-wide style="padding:110px clamp(10px,1.5vw,20px) 0">
-<div style="border-radius:28px;background:#F3FBEC;border:1px solid #C7EDAF;padding:clamp(36px,5vw,72px) clamp(18px,4vw,60px)">
-<div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:40px;align-items:start">
-<div>
-<span style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#3A4050">Our promise</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">In writing, <span style="color:#4E9126">on every build.</span></h2>
-<div style="margin-top:30px;display:flex;align-items:flex-end;gap:14px"><span style="font-size:clamp(90px,11vw,150px);font-weight:800;letter-spacing:-.06em;line-height:.8">15</span><span style="font-size:18px;font-weight:700;line-height:1.2;padding-bottom:8px">days to a<br>clickable first draft</span></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{ guarantees }}" as="g" hint-placeholder-count="6">
-<div data-rv style="display:flex;gap:14px;align-items:flex-start;background:#FFFFFF;border-radius:16px;padding:16px 18px">
-<span style="flex:none;width:26px;height:26px;border-radius:99px;background:#0A0C12;color:#A5E181;display:flex;align-items:center;justify-content:center;font-size:12px">✓</span>
-<div><span style="display:block;font-size:16px;font-weight:800;letter-spacing:-.015em">{{ g.t }}</span><span style="display:block;margin-top:3px;font-size:14px;line-height:1.5;color:#3A4050">{{ g.d }}</span></div>
-</div>
-</sc-for>
-</div>
-</div>
-</div>
-</section>
-
-<section data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto;text-align:center">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Stack &amp; integrations</span>
-<h2 data-rv style="margin:14px auto 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Built on the tools <span style="color:#99A1B1">you already run.</span></h2>
-<div style="margin:36px auto 0;max-width:1000px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px">
-<sc-for list="{{ stack }}" as="s" hint-placeholder-count="18">
-<span style="display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:99px;border:1px solid #E1E5EC;font-size:14.5px;font-weight:700;color:#262B37;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="transform:translateY(-3px);border-color:#1456E5">{{ s }}</span>
-</sc-for>
-</div>
-<p style="margin:18px 0 0;font-size:12.5px;color:#99A1B1">Integration support, not partner certification. Official partnerships noted where they apply.</p>
-</div>
-</section>
-
-<section data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1100px;margin:0 auto">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Compare</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Custom build vs <span style="color:#99A1B1">standard theme build.</span></h2>
-<div data-cmp style="margin-top:36px;border-radius:22px;border:1px solid #E1E5EC;overflow:hidden">
-<div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);background:#F6F6F8;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6D7585">
-<span style="padding:16px 20px">Capability</span><span style="padding:16px 20px;color:#1456E5;font-weight:700">Rabiro custom build</span><span style="padding:16px 20px">Standard theme build</span>
-</div>
-<sc-for list="{{ compare }}" as="r" hint-placeholder-count="6">
-<div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);border-top:1px solid #EEF1F5;font-size:15px">
-<span style="padding:16px 20px;font-weight:600">{{ r.k }}</span><span style="padding:16px 20px;font-weight:700;color:#0A0C12"><span style="color:#7BCF46">●</span> {{ r.a }}</span><span style="padding:16px 20px;color:#6D7585">{{ r.b }}</span>
-</div>
-</sc-for>
-</div>
-</div>
-</section>
-
-<section data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:1320px;margin:0 auto">
-<span data-rv style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">Testimonials</span>
-<h2 data-rv style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">What founders <span style="color:#99A1B1">say.</span></h2>
-<div style="margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px">
-<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
-<figure data-rv style="margin:0;border-radius:22px;background:#F6F6F8;padding:26px;display:flex;flex-direction:column;gap:26px">
-<blockquote style="margin:0;font-family:var(--font-serif);font-size:23px;line-height:1.35">"[Specific result the client can put their name to, e.g. what changed on the PDP or mobile flow.]"</blockquote>
-<figcaption style="margin-top:auto;display:flex;align-items:center;gap:12px"><span style="width:42px;height:42px;border-radius:99px;background:{{ t.c }}"></span><span style="font-size:14px;font-weight:700">[Client name] · [Role]<span style="display:block;font-weight:400;color:#6D7585;font-size:13px">[Brand]</span></span></figcaption>
-</figure>
-</sc-for>
-</div>
-</div>
-</section>
-
-<section id="audit" data-audit data-sec-wide style="padding:110px clamp(10px,1.5vw,20px) 0">
-<div style="border-radius:28px;background:#1456E5;color:#FFFFFF;padding:clamp(32px,5vw,72px) clamp(18px,4vw,60px)">
-<div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
-<div>
-<span style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#B2C8FA">Start here · free audit</span>
-<h2 style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Get a free Shopify store audit.</h2>
-<p style="margin:18px 0 0;font-size:16px;line-height:1.6;color:#D9E4FD;max-width:44ch">Tell us about your store. We'll review it and send what we'd change over WhatsApp, within 48 hours.</p>
-<span style="display:block;margin-top:30px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#B2C8FA">The audit covers</span>
-<div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px">
-<sc-for list="{{ auditCovers }}" as="a" hint-placeholder-count="9"><span style="padding:9px 14px;border-radius:99px;background:rgba(255,255,255,.12);font-size:14px;font-weight:600">{{ a }}</span></sc-for>
-</div>
-</div>
-<div style="background:#FFFFFF;color:#0A0C12;border-radius:24px;padding:clamp(20px,3vw,32px)">
-<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-<form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:20px">
-<div>
-<span style="display:block;font-size:14px;font-weight:700">Monthly ecommerce revenue</span>
-<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
-<sc-for list="{{ revOpts }}" as="o" hint-placeholder-count="6"><button type="button" onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font-family:var(--font-sans);font-size:13.5px;font-weight:600;padding:9px 13px;border-radius:99px">{{ o.label }}</button></sc-for>
-</div>
-</div>
-<div>
-<span style="display:block;font-size:14px;font-weight:700">Project budget</span>
-<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
-<sc-for list="{{ budOpts }}" as="o" hint-placeholder-count="5"><button type="button" onClick="{{ o.pick }}" style="appearance:none;cursor:pointer;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font-family:var(--font-sans);font-size:13.5px;font-weight:600;padding:9px 13px;border-radius:99px">{{ o.label }}</button></sc-for>
-</div>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px">
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Name" name="name" placeholder="Your name" required="{{ true }}" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Brand" name="brand" placeholder="Brand name" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Website URL" name="url" placeholder="yourstore.com" required="{{ true }}" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="WhatsApp" name="whatsapp" type="tel" placeholder="+91" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Email" name="email" type="email" placeholder="you@store.com" required="{{ true }}" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Select" label="Current platform" name="platform" options="{{ platformOpts }}" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Select" label="Required service" name="service" options="{{ serviceOpts }}" containerStyle="{{ fullSpan }}" hint-size="100%,72px"></x-import>
-<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Textarea" label="Project brief" name="brief" rows="{{ 3 }}" placeholder="What are you selling, and what's not working today?" containerStyle="{{ fullSpan }}" hint-size="100%,120px"></x-import>
-</div>
-<sc-if value="{{ showErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:13.5px;color:#D33F3A">Pick your revenue and budget so we can scope the audit.</span></sc-if>
-<button type="submit" style="appearance:none;border:0;cursor:pointer;align-self:flex-start;display:inline-flex;align-items:center;gap:12px;background:#0D3893;color:#FFFFFF;font-family:var(--font-sans);font-size:16px;font-weight:700;padding:7px 7px 7px 22px;border-radius:99px" style-hover="background:#0F45BC">Get my free audit<span style="width:36px;height:36px;border-radius:99px;background:#FFFFFF;color:#1456E5;display:flex;align-items:center;justify-content:center">→</span></button>
-</form>
-</sc-if>
-<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-<div style="padding:30px 0;display:flex;flex-direction:column;gap:14px">
-<span style="width:50px;height:50px;border-radius:99px;background:#7BCF46;display:flex;align-items:center;justify-content:center;font-size:20px">✓</span>
-<h3 style="margin:0;font-size:28px;font-weight:800;letter-spacing:-.035em">Request received.</h3>
-<p style="margin:0;font-size:16px;line-height:1.6;color:#515869">We'll review your store and send your free audit over WhatsApp within 48 hours.</p>
-</div>
-</sc-if>
-</div>
-</div>
-</div>
-</section>
-
-<section id="faq" data-sec style="padding:110px clamp(18px,3vw,36px) 0">
-<div style="max-width:900px;margin:0 auto">
-<div style="text-align:center"><span style="display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6D7585">FAQ</span>
-<h2 style="margin:14px 0 0;font-size:clamp(32px,4.2vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1">Questions, <span style="color:#99A1B1">answered.</span></h2></div>
-<div style="margin-top:36px"><x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Accordion" items="{{ faq }}" default-open="{{ null }}" hint-size="100%,700px"></x-import></div>
-</div>
-</section>
-
-<section data-sec-wide style="padding:110px clamp(10px,1.5vw,20px) 20px">
-<div style="border-radius:28px;background:#0A0C12;color:#FFFFFF;padding:clamp(60px,9vw,120px) clamp(20px,4vw,60px);text-align:center;position:relative;overflow:hidden">
-<div style="position:absolute;left:0;right:0;top:0;height:3px;background:var(--gradient-brand)"></div>
-<h2 data-rv style="margin:0 auto;font-size:clamp(34px,5vw,72px);font-weight:800;letter-spacing:-.05em;line-height:.98;max-width:18ch">Your Shopify store shouldn't be <span style="color:#6D7585">what holds your brand back.</span></h2>
-<p style="margin:22px auto 0;font-size:17px;line-height:1.6;color:#A8B0BF;max-width:54ch">Planning a redesign, migration or new build? We'll audit your current setup and show you what we'd change.</p>
-<a href="#audit" style="margin-top:32px;display:inline-flex;align-items:center;gap:12px;background:#7BCF46;color:#0A0C12;font-size:16px;font-weight:700;padding:7px 7px 7px 22px;border-radius:99px" style-hover="background:#A5E181;color:#0A0C12">Get your free Shopify audit<span style="width:36px;height:36px;border-radius:99px;background:#0A0C12;color:#7BCF46;display:flex;align-items:center;justify-content:center">→</span></a>
-</div>
-</section>
-
-<footer style="padding:50px clamp(18px,3vw,36px) 0;overflow:hidden">
-<div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:36px">
-<div><img src="assets/logo-horizontal-dark.png" alt="Rabiro" style="height:26px"><p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:#6D7585;max-width:30ch">Custom Shopify design and development, built in-house in Mohali.</p></div>
-<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#99A1B1">Explore</span><div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14.5px"><a href="#services" style="color:#262B37">Services</a><a href="#work" style="color:#262B37">Work</a><a href="#process" style="color:#262B37">Process</a><a href="#pricing" style="color:#262B37">Pricing</a><a href="#faq" style="color:#262B37">FAQ</a></div></div>
-<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#99A1B1">Studio</span><div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:#262B37;line-height:1.5"><span>Mirans Square, D-180C, 3rd Floor</span><span>Sector 74A, Mohali 140308</span></div></div>
-<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#99A1B1">Contact</span><div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14.5px"><a href="mailto:connect@rabiro.com" style="color:#262B37">connect@rabiro.com</a><a href="tel:+919934438066" style="color:#262B37">+91 99344 38066</a><a href="#audit" style="color:#1456E5;font-weight:700">Free store audit →</a></div></div>
-</div>
-<div style="max-width:1320px;margin:40px auto 0;padding:18px 0;border-top:1px solid #EEF1F5;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#99A1B1"><span>© 2026 Rabiro · In-house, always</span><span>Official Shopify Partner · Mohali</span></div>
-<img src="assets/wordmark-dark.png" alt="" aria-hidden="true" style="display:block;width:100%;max-width:1400px;margin:10px auto -4%;opacity:.06">
-</footer>
-
-</div>
+<!-- ============ STICKY ============ -->
+<div class="sticky" id="sticky">
+  <a class="wa" id="waBtn" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg><span>WhatsApp us</span></a>
+  <a class="btn btn-ink" href="#pricing" id="stickyCta">Get a quote <span class="price-hint">from ₹50K</span><span class="arr">→</span></a>
 </div>
 
-<sc-if value="{{ roast }}" hint-placeholder-val="{{ false }}">
-<div style="position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:20px">
-<div onClick="{{ closeRoast }}" style="position:absolute;inset:0;background:rgba(10,12,18,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
-<div role="dialog" aria-modal="true" aria-label="Budget too low" style="position:relative;width:100%;max-width:480px;background:#FFFFFF;border-radius:28px;padding:32px;box-shadow:0 50px 120px rgba(10,12,18,.35);animation:slPop .38s cubic-bezier(.16,1,.3,1)">
-<span style="display:inline-flex;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;background:#0A0C12;color:#FFFFFF;padding:7px 12px;border-radius:99px">{{ roastAmt }}? Bold move.</span>
-<h3 style="margin:18px 0 0;font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1.02">That budget buys a theme and a prayer.</h3>
-<p style="margin:14px 0 0;font-size:16px;line-height:1.6;color:#515869">We build stores that are supposed to make money, not ones that need rescuing in six months. Custom builds start at <strong style="color:#0A0C12">₹50,000</strong>. Anything less and you're paying twice.</p>
-<div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:10px">
-<button type="button" onClick="{{ closeRoast }}" style="appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:10px;background:#1456E5;color:#FFFFFF;font-family:var(--font-sans);font-size:15px;font-weight:700;padding:6px 6px 6px 18px;border-radius:99px" style-hover="background:#0F45BC">Fair. Show me ₹50K+<span style="width:32px;height:32px;border-radius:99px;background:#7BCF46;color:#0A0C12;display:flex;align-items:center;justify-content:center">→</span></button>
-<a href="#audit" onClick="{{ closeRoast }}" style="display:inline-flex;align-items:center;background:#F6F6F8;color:#0A0C12;font-size:15px;font-weight:700;padding:12px 18px;border-radius:99px" style-hover="background:#EEF1F5;color:#0A0C12">Get the free audit instead</a>
+<!-- ============ FORM MODAL ============ -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="scrim" data-close></div>
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="Close">×</button>
+    <div id="formView">
+      <span class="plan-pill" id="mPill">Custom Shopify store · ₹1,00,000+</span>
+      <h3 id="mTitle">Let's build your store.</h3>
+      <p class="sub" id="mSub">Takes 30 seconds. We'll WhatsApp you within 24 hours.</p>
+      <form id="leadForm" novalidate>
+        <input type="hidden" id="f-plan" name="plan">
+        <div class="fields">
+          <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" placeholder="Full name" required><span class="msg">Enter your name.</span></div>
+          <div class="f"><label for="f-phone">WhatsApp number</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required><span class="msg">Enter a valid 10-digit number.</span></div>
+          <div class="f full"><label for="f-brand">Brand / company name</label><input id="f-brand" name="brand" autocomplete="organization" placeholder="e.g. Untapped London" required><span class="msg">Enter your brand name.</span></div>
+          <div class="f full"><label for="f-cat">What do you sell?</label>
+            <select id="f-cat" name="category" required>
+              <option value="">Choose a category</option>
+              <option>Fashion &amp; apparel</option><option>Beauty &amp; personal care</option><option>Health &amp; supplements</option><option>Jewellery &amp; accessories</option><option>Food &amp; beverage</option><option>Home &amp; lifestyle</option><option>Other</option>
+            </select><span class="msg">Pick a category.</span></div>
+          <div class="f full"><label for="f-site">Current website <small>(optional)</small></label><input id="f-site" name="website" inputmode="url" placeholder="yourstore.com"></div>
+        </div>
+        <button class="btn btn-blue" type="submit" id="submitBtn">Send my details<span class="arr">→</span></button>
+        <p class="fine">No spam. One call, then WhatsApp.</p>
+      </form>
+    </div>
+    <div class="done" id="doneView" hidden>
+      <div class="ok">✓</div>
+      <h3>Got it, <span id="doneName">there</span>.</h3>
+      <p class="sub">We'll reach out on WhatsApp within 24 hours. Want to start the chat now?</p>
+      <a class="wa" id="doneWa" href="#" target="_blank" rel="noopener" style="margin-top:22px">Continue on WhatsApp</a>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</sc-if>
-<a data-sticky href="#audit" style="position:fixed;left:50%;bottom:20px;z-index:60;display:flex;align-items:center;gap:12px;background:#0A0C12;color:#FFFFFF;font-size:15px;font-weight:700;padding:7px 7px 7px 20px;border-radius:99px;box-shadow:0 20px 50px rgba(10,12,18,.3);transform:translate(-50%,140%);transition:transform .38s cubic-bezier(.16,1,.3,1)" style-hover="color:#FFFFFF">Get a free store audit<span style="width:34px;height:34px;border-radius:99px;background:#7BCF46;color:#0A0C12;display:flex;align-items:center;justify-content:center">→</span></a>
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = { rev: null, bud: null, sent: false, err: false, lo: 50000, hi: 150000, roast: false, roastAmt: '' };
 
-  data() {
-    if (this._d) return this._d;
-    const ms = (d, w, h) => 'https://s.wordpress.com/mshots/v1/' + encodeURIComponent('https://' + d) + '?w=' + w + '&h=' + h;
-    const W = [
-      ['Untapped London', 'untappedldn.com', 'https://untappedldn.com/', 'Streetwear, London', 'Shopify storefront', 'Looks imported, loads like it is hosted next door. Multi-currency, drops, lookbook.'],
-      ['Jeevrasa', 'jeevrasa.com', 'https://jeevrasa.com/', 'Ayurveda', 'Store and growth', 'Ayurvedic formulations sold on trust, so proof leads and the cart is two taps away.'],
-      ['House of Baani', 'houseofbaani.com', 'https://houseofbaani.com/', 'Embellished denim, Sydney', 'Store and creative', 'Hand-embroidered denim sells on detail, so video led every section.'],
-      ['Mhari', 'mhari.in', 'https://www.mhari.in/', 'Sculptural jewellery', 'Shopify build and growth', 'Made-to-order silver with press from Grazia to Hindustan Times. The store had to hold that weight.'],
-      ['Wearduds', 'wearduds.com', 'https://www.wearduds.com/', 'Apparel', 'Shopify storefront', '[Add project summary: what was built and why]'],
-      ['The Cub Story', 'thecubstory.com', 'https://thecubstory.com/', 'Kidswear', 'Shopify storefront', '[Add project summary: what was built and why]'],
-      ['Big Rock Nutrition', 'bigrocknutrition.in', 'https://www.bigrocknutrition.in/', 'Supplements', 'Shopify storefront', '[Add project summary: what was built and why]'],
-      ['Chaos and Co', 'chaosandco.in', 'https://chaosandco.in/', 'Fashion', 'Shopify storefront', '[Add project summary: what was built and why]'],
-      ['Disha Publication', 'dishapublication.com', 'https://dishapublication.com/', 'Education publishing', 'Catalogue commerce', 'Thousands of titles, one checkout that had to stay simple.']
-    ].map(([name, domain, url, industry, scope, line]) => ({ name, domain, url, industry, scope, line, shot: ms(domain, 900, 675), wide: ms(domain, 1400, 1000) }));
-    const tags = [['#0D3893', '#FFFFFF'], ['#7BCF46', '#0A0C12'], ['#1456E5', '#FFFFFF'], ['#0A2354', '#FFFFFF']];
-    const clients = ['Untapped London', 'House of Baani', 'Mhari', 'Wearduds', 'The Cub Story', 'Chaos and Co', 'Jeevrasa', 'Big Rock Nutrition', 'Myo India', '111 Mart', 'EverHealthy Nutrition', 'Generic Aadhaar', 'Disha Publication', 'Just What Works', 'Qreative', 'Shop Shezone'];
-    this._d = {
-      deck: W.slice(0, 8).map((w, i) => ({ ...w, delay: (-i * 4) + 's' })),
-      clientLoop: clients.concat(clients),
-      feat: W[0],
-      caseMetrics: ['Conversion rate, before → after', 'Mobile conversion', 'Page speed / LCP', 'Add-to-cart rate'],
-      projCount: String(W.length - 1).padStart(2, '0'),
-      capMeta: W[1].industry + ' · ' + W[1].scope,
-      capLine: W[1].line,
-      projects: W.slice(1).map((w, i) => ({ ...w, tagBg: tags[i % 4][0], tagFg: tags[i % 4][1] })),
-      audience: [
-        ['D2C brands', '#F6F6F8', '#0A0C12'], ['Established ecommerce businesses', '#0D3893', '#FFFFFF'], ['Brands moving from WooCommerce or Wix', '#F6F6F8', '#0A0C12'],
-        ['Redesigning an existing Shopify store', '#7BCF46', '#0A0C12'], ['Brands outgrowing a basic theme', '#F6F6F8', '#0A0C12'], ['International ecommerce brands', '#0A2354', '#FFFFFF']
-      ].map(([t, bg, fg], i) => ({ t, bg, fg, n: '0' + (i + 1) })),
-      services: [
-        { t: 'Build', c: '#1456E5', items: ['Custom Shopify development', 'Theme development & customisation', 'Shopify redesign', 'Shopify migration', 'Custom Shopify functionality'] },
-        { t: 'Design & CRO', c: '#0D3893', items: ['Shopify UI/UX design', 'CRO optimisation', 'Product page development', 'Collection & category pages', 'Cart & checkout optimisation'] },
-        { t: 'Commerce features', c: '#0A2354', items: ['Shopify app integration', 'Subscription setup', 'Product bundles', 'Quiz & product recommendations', 'Loyalty & rewards'] },
-        { t: 'Grow & maintain', c: '#7BCF46', items: ['International / multi-market stores', 'Technical SEO', 'Performance optimisation', 'Post-launch maintenance'] }
-      ],
-      diffs: [
-        ['Custom coded', 'Not another copy-paste marketplace theme.', '#7BCF46'], ['Conversion first', 'Layouts designed around product discovery, trust and purchase.', '#0D3893'],
-        ['Mobile first', 'Designed thumb-first, because most ecommerce traffic comes from mobile.', '#82A6F6'], ['Performance focused', 'Minimal unnecessary scripts, apps and dependencies.', '#7BCF46'],
-        ['Built in-house', 'Design and development handled by one accountable team.', '#0D3893'], ['Scalable', 'Still works when SKUs, traffic and operations grow.', '#82A6F6']
-      ].map(([t, d, c], i) => ({ t, d, c, n: '0' + (i + 1) })),
-      process: [
-        ['Discovery', 'Business, customer, catalogue, competitors and current store analysis.', '#1456E5'], ['UX & design', 'Structure, wireframes and ecommerce UI.', '#0D3893'],
-        ['Shopify development', 'Liquid development, responsive build, apps and custom features.', '#0A2354'], ['QA & launch', 'Device and checkout testing, migration, SEO redirects, deployment.', '#1456E5'],
-        ['Optimisation', 'Post-launch fixes, CRO improvements and maintenance.', '#7BCF46']
-      ].map(([t, d, c], i) => ({ t, d, c, n: '0' + (i + 1) })),
-      included: ['Homepage', 'Collection pages', 'Product pages', 'Cart', 'Search', 'Navigation', 'Account pages', 'Responsive mobile design', 'Shopify setup', 'Payment gateway setup', 'Shipping setup', 'App integrations', 'Analytics', 'Meta Pixel', 'GA4', 'Technical SEO', 'Speed optimisation', 'QA', 'Launch support', 'Training & documentation'],
-      tiers: [
-        { n: '01', name: 'Development', price: 'From ₹50,000', for: 'You already have the design. We build it properly on Shopify.', items: ['Your design, our development', 'Custom coded sections', 'Responsive build & QA'], bg: '#F6F6F8', fg: '#0A0C12', rule: '#E1E5EC', btnBg: '#0A0C12', btnFg: '#FFFFFF', cta: 'Start with an audit' },
-        { n: '02', name: 'Custom Shopify store', price: 'From ₹1,00,000', for: 'Strategy, UX/UI and custom Shopify development.', items: ['Full custom design & build', 'CRO built into every section', 'Technical SEO', '30 days post-launch support'], bg: '#F6F6F8', fg: '#0A0C12', rule: '#E1E5EC', btnBg: '#0A0C12', btnFg: '#FFFFFF', cta: 'Start with an audit' },
-        { n: '03', name: 'Advanced commerce', price: 'From ₹1,50,000', for: 'CRO, advanced features, custom flows and integrations.', items: ['Quiz-based product suggestions', 'Smart bundling & kitting', 'Loyalty / rewards setup', 'Custom integrations'], bg: '#1456E5', fg: '#FFFFFF', rule: 'rgba(255,255,255,.25)', btnBg: '#7BCF46', btnFg: '#0A0C12', cta: 'Start with an audit' },
-        { n: '04', name: 'Enterprise / Global', price: 'Custom quote', for: 'Multi-market stores, complex integrations and production.', items: ['International store rollout', 'End-to-end design, shoot & development', 'Branding & art direction'], bg: '#0A0C12', fg: '#FFFFFF', rule: 'rgba(255,255,255,.15)', btnBg: '#FFFFFF', btnFg: '#0A0C12', cta: 'Talk to us' }
-      ],
-      guarantees: [
-        ['15-day first draft', 'A real, clickable first draft in your hands within fifteen days.'], ['Two revision rounds included', 'Structured, consolidated feedback before launch.'],
-        ['30 days post-launch support', 'Bug fixes and small tweaks after go-live, on us.'], ['Fully responsive delivery', 'Built and tested across devices and browsers.'],
-        ['You own the theme', 'The code lives in your Shopify store, documented for your team.'], ['No hidden theme dependency', 'Minimal apps, fewer points of failure, faster pages.']
-      ].map(([t, d]) => ({ t, d })),
-      stack: ['Shopify', 'Shopify Markets', 'Razorpay', 'Cashfree', 'GoKwik', 'Shiprocket', 'Klaviyo', 'AiSensy', 'Meta Pixel', 'GA4', 'Google Merchant Center', 'Judge.me', 'Recharge', 'Loop', 'Gorgias', 'Loyalty tools', 'Subscription apps', 'ERP / WMS'],
-      compare: [['Custom UI', 'Yes', 'Limited'], ['CRO planning', 'Included', 'Usually separate'], ['Custom Liquid', 'Yes', 'Limited'], ['Advanced functionality', 'Built in', 'App dependent'], ['Performance work', 'Included', 'Varies'], ['Post-launch support', 'Included', 'Varies']].map(([k, a, b]) => ({ k, a, b })),
-      testimonials: [{ c: '#0D3893' }, { c: '#1456E5' }, { c: '#7BCF46' }],
-      auditCovers: ['UX problems', 'Mobile experience', 'Product page', 'Cart friction', 'Speed', 'CRO', 'Technical issues', 'App bloat', 'Growth opportunities'],
-      revList: ['Pre-revenue', 'Under ₹5L', '₹5–15L', '₹15–50L', '₹50L–₹1Cr', '₹1Cr+'],
-      budList: ['₹50K–₹1L', '₹1L–₹2L', '₹2L–₹5L', '₹5L+', 'Need help scoping'],
-      platformOpts: ['Shopify', 'WooCommerce', 'Wix', 'Magento', 'Custom / other', 'No store yet'],
-      serviceOpts: ['New custom Shopify store', 'Shopify redesign', 'Migration to Shopify', 'CRO & performance', 'Custom features / apps', 'Maintenance', 'Not sure yet'],
-      fullSpan: { gridColumn: '1 / -1' },
-      faq: [
-        ['How much does Shopify development cost?', 'Development on your design starts from ₹50,000. Custom stores start from ₹1,00,000, advanced commerce from ₹1,50,000, and global builds are quoted after scoping.'],
-        ['How long does it take?', 'A full custom build generally runs 3–5 weeks, with a clickable first draft within 15 days.'],
-        ['Can you redesign my existing Shopify store?', 'Yes. We work on new builds and revamps of existing stores.'],
-        ['Do you migrate WooCommerce, Wix or Magento stores?', 'Yes. Products, content, redirects and SEO equity move with you.'],
-        ['Do you provide design too?', 'Yes. Custom store and above include strategy and UX/UI design.'],
-        ['Can you work from our Figma design?', 'Yes. That is exactly what the Development tier is for.'],
-        ['Do you develop custom Shopify sections?', 'Yes. Sections are hand-built in Liquid rather than dragged in from a theme.'],
-        ['Do you handle apps and integrations?', 'Yes: payments, shipping, reviews, subscriptions, loyalty, analytics and ERP/WMS.'],
-        ['Do you provide maintenance?', 'Every build includes 30 days of post-launch support and two revision rounds. Retainers are available after that.'],
-        ['Can you improve our conversion rate?', 'CRO is built into custom builds and can run as a standalone engagement on your current store.'],
-        ['Will we own the theme and code?', 'Yes. The theme lives in your Shopify store and is documented for your team.'],
-        ['Do you work with international businesses?', 'Yes. The Enterprise / Global tier covers multi-currency, multi-market storefronts.']
-      ].map(([title, body]) => ({ title, body }))
-    };
-    return this._d;
+<script>
+/* ============ CONFIG — edit here ============ */
+const CONFIG = {
+  whatsapp: '919934438066',
+  // One endpoint per plan, so every lead shows which plan it came from.
+  // Paste a Google Apps Script / Zapier / Make webhook URL for each. Leave '' to skip.
+  forms: { development:'', custom:'', advanced:'', enterprise:'', audit:'' }
+};
+const PLANS = {
+  development:{pill:'Development · ₹50,000+', title:"Let's build your design.", sub:'Share a few details. We\'ll WhatsApp you within 24 hours.'},
+  custom:{pill:'Custom Shopify store · ₹1,00,000+', title:"Let's build your store.", sub:'Share a few details. We\'ll WhatsApp you within 24 hours.'},
+  advanced:{pill:'Advanced commerce · ₹1,50,000+', title:"Let's scope your build.", sub:'Share a few details. We\'ll WhatsApp you within 24 hours.'},
+  enterprise:{pill:'Enterprise / Global · Custom quote', title:"Let's talk scope.", sub:'Share a few details. We\'ll WhatsApp you within 24 hours.'},
+  audit:{pill:'Store audit call · ₹999', title:'Book your audit call.', sub:'We\'ll WhatsApp you a slot and payment link.'}
+};
+/* REPLACE with Wearduds' real numbers before going live */
+const CASE = [
+  {k:'Conversion rate', before:0.9, after:2.4, unit:'%'},
+  {k:'Add-to-cart rate', before:4.1, after:8.6, unit:'%'},
+  {k:'Mobile conversion', before:0.6, after:2.1, unit:'%'},
+  {k:'Monthly sales', before:100, after:212, unit:'idx'}
+];
+const STORES = [
+  ['Untapped London','untappedldn.com','Streetwear, London','untappedldn'],
+  ['Just What Works','justwhatworks.in','Supplements','justwhatworks'],
+  ['Jeevrasa','jeevrasa.com','Ayurveda','jeevrasa'],
+  ['House of Baani','houseofbaani.com','Embellished denim, Sydney','houseofbaani'],
+  ['Mhari','mhari.in','Handcrafted silver jewellery','mhari'],
+  ['Wearduds','wearduds.com','Streetwear','wearduds'],
+  ['Chaos & Co.','chaosandco.in','Gymwear','chaosandco'],
+  ['Big Rock Nutrition','bigrocknutrition.in','Sports nutrition','bigrocknutrition'],
+  ['Reroot','reroot.health','Personalised nutrition','reroot']
+];
+const LOGOS = [['untappedldn',''],['jeevrasa','tall'],['houseofbaani','tall'],['mhari','tall'],['wearduds',''],['chaosandco','tall'],['bigrock','tall'],['justwhatworks','tall']];
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- logos ---------- */
+(()=>{const one=LOGOS.map(([f])=>`<div class="logo-cell"><img src="logos/${f}.png" alt="${f}"></div>`).join('')+'<div class="logo-cell"><span class="word">reroot</span></div>';
+const row=$('#logosRow'); row.innerHTML=one+one;
+// optical sizing: give every logo the same visual area, whatever its shape
+const fit=img=>{const r=img.naturalWidth/img.naturalHeight; if(!r) return; const cell=img.parentNode.clientWidth-36;
+  let h=Math.sqrt(2300/r); h=Math.max(10,Math.min(38,h)); let w=h*r; if(w>cell){w=cell;h=w/r;} img.style.height=h.toFixed(1)+'px'; img.style.width=w.toFixed(1)+'px';};
+row.querySelectorAll('img').forEach(i=>{ if(i.complete) fit(i); else i.addEventListener('load',()=>fit(i)); });
+addEventListener('resize',()=>row.querySelectorAll('img').forEach(fit));})();
+
+/* ---------- reel ---------- */
+(()=>{
+  const track=$('#track');
+  track.innerHTML=STORES.map(([n,d,ind,f])=>`
+  <a class="card" href="https://${d}/" target="_blank" rel="noopener">
+    <div class="shot">
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>${d}</span></div><img src="shots/${f}-d.jpg" alt="${esc(n)} homepage" loading="lazy"></div>
+      <div class="mob"><img src="shots/${f}-m.jpg" alt="${esc(n)} on mobile" loading="lazy"></div>
+    </div>
+    <div class="card-meta"><div><h3>${esc(n)}</h3><p>${esc(ind)}</p></div><span class="visit">Visit store ↗</span></div>
+  </a>`).join('');
+  $('#reelTotal').textContent=String(STORES.length).padStart(2,'0');
+  const reel=$('#work'), bar=$('#reelBar'), now=$('#reelNow');
+  let cur=0;
+  function size(){ if(innerWidth<=980){reel.style.height='';return;} const need=Math.max(0,track.scrollWidth-innerWidth); reel.style.height=(innerHeight+need)+'px'; }
+  function tick(){
+    requestAnimationFrame(tick);
+    const cards=track.children;
+    if(innerWidth<=980){ // mobile: native swipe, count from scroll
+      const w=cards[0]?cards[0].getBoundingClientRect().width+28:1; now.textContent=String(Math.min(STORES.length,Math.round(track.scrollLeft/w)+1)).padStart(2,'0'); return; }
+    const r=reel.getBoundingClientRect(), need=Math.max(0,track.scrollWidth-innerWidth);
+    const p=Math.min(1,Math.max(0,-r.top/Math.max(1,reel.offsetHeight-innerHeight)));
+    const tgt=p*need; cur+= still?(tgt-cur):(tgt-cur)*.12;
+    track.style.transform=`translate3d(${-cur.toFixed(1)}px,0,0)`;
+    bar.style.width=(p*100).toFixed(1)+'%';
+    let best=0,bd=1e9; for(let i=0;i<cards.length;i++){const cr=cards[i].getBoundingClientRect();const off=Math.abs(cr.left+cr.width/2-innerWidth/2);if(off<bd){bd=off;best=i;}}
+    now.textContent=String(best+1).padStart(2,'0');
   }
+  addEventListener('resize',size); addEventListener('load',size); size(); requestAnimationFrame(tick);
+})();
 
-  renderVals() {
-    const d = this.data();
-    const chip = (list, key) => list.map(label => {
-      const on = this.state[key] === label;
-      return { label, bg: on ? '#0A0C12' : '#FFFFFF', fg: on ? '#FFFFFF' : '#262B37', bd: on ? '#0A0C12' : '#E1E5EC', pick: () => this.setState({ [key]: label, err: false }) };
+/* ---------- case metrics ---------- */
+(()=>{
+  const fmt=(v,u)=>u==='%'?v.toFixed(1)+'%':v;
+  $('#metrics').innerHTML=CASE.map(m=>{
+    const max=Math.max(m.before,m.after), lift=Math.round((m.after/m.before-1)*100);
+    const v=m.unit==='idx'?`<span class="up">+${lift}%</span>`:`${fmt(m.before,m.unit)} → <b>${fmt(m.after,m.unit)}</b> <span class="up">+${lift}%</span>`;
+    return `<div class="mrow"><span class="k">${m.k}</span><span class="v">${v}</span><div class="bars"><i class="bf" style="width:${(m.before/max*100).toFixed(0)}%"></i><i class="af" style="--w:${(m.after/max*100).toFixed(0)}%"></i></div></div>`;
+  }).join('');
+  const card=$('#caseCard');
+  new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){card.classList.add('in');o.disconnect();}})},{threshold:.25}).observe(card);
+  setTimeout(()=>card.classList.add('in'),4000);
+})();
+
+/* ---------- case page viewer ---------- */
+(()=>{
+  const root=$('.case-r'), tabs=[...root.querySelectorAll('[data-pg]')], D=[...$('#pgD').children], M=[...$('#pgM').children];
+  const urls=['wearduds.com','wearduds.com/collections/best-seller','wearduds.com/products/milano-joggers'];
+  const caps=['Campaign-led hero, drops up front.','Best-sellers with savings badges and quick add.','Buy-2 offer, prepaid savings and size guide above the fold.'];
+  let i=0, timer=null;
+  function show(n){ i=n; tabs.forEach((t,k)=>{t.classList.toggle('on',k===n);t.setAttribute('aria-selected',k===n);});
+    [D,M].forEach(l=>l.forEach((im,k)=>im.classList.toggle('on',k===n)));
+    $('#pgUrl').textContent=urls[n]; $('#pgCap').textContent=caps[n];
+    const b=tabs[n]; b.classList.remove('on'); void b.offsetWidth; b.classList.add('on'); }
+  function auto(){ clearInterval(timer); if(still) return; timer=setInterval(()=>show((i+1)%3),4200); }
+  tabs.forEach((t,k)=>t.addEventListener('click',()=>{ show(k); root.classList.add('paused'); clearInterval(timer); }));
+  show(0); auto();
+})();
+
+/* ---------- hero race ---------- */
+(()=>{
+  const el=id=>document.getElementById(id);
+  const sizes=[...el('sizes').children];
+  const badMsgs=['Add to cart below the fold','Layout jumped, tap missed','Checkout timed out'];
+  let t0=0, badO=0, goodO=0, round=0;
+  function reset(){
+    el('badBar').style.transition='none'; el('badBar').style.width='0';
+    el('goodBar').style.transition='none'; el('goodBar').style.width='0';
+    el('badToast').classList.remove('show'); el('goodToast').classList.remove('show');
+    el('badBody').classList.remove('shift'); sizes.forEach(s=>s.classList.remove('on'));
+  }
+  function run(){
+    reset(); t0=performance.now(); round++;
+    requestAnimationFrame(()=>{
+      el('goodBar').style.transition='width 1.2s cubic-bezier(.16,1,.3,1)'; el('goodBar').style.width='100%';
+      el('badBar').style.transition='width 6.4s linear'; el('badBar').style.width='88%';
     });
-    const R0 = 10000, R1 = 500000, FLOOR = 50000, GAP = 20000;
-    const { lo, hi } = this.state;
-    const fmt = (v) => '₹' + v.toLocaleString('en-IN');
-    const pct = (v) => (v - R0) / (R1 - R0);
-    const fits = [['Development', 50000], ['Custom store', 100000], ['Advanced commerce', 150000]].filter(([, p]) => p <= hi).map(([n]) => n);
-    const words = ['sell.', 'convert.', 'load fast.', 'scale.'];
-    const wi = (this.state.wi || 0) % words.length;
-    const heroWord = React.createElement('span', { key: wi, style: { display: 'inline-block', color: '#1456E5', position: 'relative', animation: 'slWord .6s cubic-bezier(.16,1,.3,1) both' } }, words[wi],
-      React.createElement('span', { style: { position: 'absolute', left: 0, right: '.3em', bottom: '-.02em', height: '.08em', borderRadius: 99, background: '#7BCF46' } }));
-    return {
-      ...d,
-      menuOpen: !!this.state.menu,
-      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
-      closeMenu: () => this.setState({ menu: false }),
-      mobLinks: [['Services', '#services'], ['Work', '#work'], ['Process', '#process'], ['Pricing', '#pricing'], ['FAQ', '#faq']].map(([t, href], i) => ({ t, href, n: '0' + (i + 1) })),
-      heroWord, heroFirst: d.deck[0].name + ' · ' + d.deck[0].industry,
-      onHeroAudit: (e) => {
-        e.preventDefault();
-        const v = (e.target.elements.heroUrl.value || '').trim();
-        const el = document.getElementById('audit');
-        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth' });
-        if (v) setTimeout(() => { const i = document.querySelector('#audit input[name="url"]'); if (i) { const s = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; s.call(i, v); i.dispatchEvent(new Event('input', { bubbles: true })); } }, 500);
-      },
-      rMin: R0, rMax: R1, rStep: 5000, lo, hi,
-      rangeLabel: fmt(lo) + ' – ' + fmt(hi) + (hi >= R1 ? '+' : ''),
-      fillLeft: 'calc(15px + (100% - 30px) * ' + pct(lo) + ')',
-      fillWidth: 'calc((100% - 30px) * ' + (pct(hi) - pct(lo)) + ')',
-      floorLeft: 'calc(14px + (100% - 30px) * ' + pct(FLOOR) + ')',
-      fitLabel: fits.length ? 'Fits: ' + fits.join(' · ') + (hi >= R1 ? ' · Enterprise / Global' : '') : 'Slide up. Our builds start at ₹50K.',
-      onLo: (e) => {
-        const v = Math.min(+e.target.value, hi - GAP);
-        if (v < FLOOR) { if (!this.state.roast) this.setState({ roast: true, roastAmt: fmt(v), lo: FLOOR }); else this.setState({ lo: FLOOR }); return; }
-        this.setState({ lo: v });
-      },
-      onHi: (e) => this.setState({ hi: Math.max(+e.target.value, lo + GAP) }),
-      roast: this.state.roast, roastAmt: this.state.roastAmt,
-      closeRoast: () => this.setState({ roast: false, lo: FLOOR }),
-      revOpts: chip(d.revList, 'rev'),
-      budOpts: chip(d.budList, 'bud'),
-      sent: this.state.sent, notSent: !this.state.sent, showErr: this.state.err,
-      onSubmit: (e) => { e.preventDefault(); if (!this.state.rev || !this.state.bud) { this.setState({ err: true }); return; } this.setState({ sent: true }); }
-    };
+    const T=(ms,f)=>setTimeout(f,ms);
+    T(1300,()=>sizes[1].classList.add('on'));
+    T(2100,()=>{el('atc').classList.remove('pulse');void el('atc').offsetWidth;el('atc').classList.add('pulse');el('goodToast').classList.add('show');goodO++;el('goodOrders').textContent=goodO;});
+    T(3200,()=>el('goodToast').classList.remove('show'));
+    T(3600,()=>{sizes[1].classList.remove('on');sizes[2].classList.add('on');});
+    T(4300,()=>{el('atc').classList.remove('pulse');void el('atc').offsetWidth;el('atc').classList.add('pulse');el('goodToast').classList.add('show');goodO++;el('goodOrders').textContent=goodO;});
+    T(5200,()=>el('goodToast').classList.remove('show'));
+    T(3000,()=>el('badBody').classList.add('shift'));
+    T(4800,()=>{el('badToastTxt').textContent=badMsgs[round%badMsgs.length];el('badToast').classList.add('show');if(round%3===0){badO++;el('badOrders').textContent=badO;}});
+    T(7600,run);
   }
+  function clock(){
+    requestAnimationFrame(clock);
+    if(!t0) return; const s=(performance.now()-t0)/1000;
+    el('raceClock').textContent=String(Math.min(s,7.6).toFixed(1)).padStart(4,'0')+'s';
+    el('goodLoad').textContent=Math.min(s,1.2).toFixed(1)+'s';
+    el('badLoad').textContent=Math.min(s,6.8).toFixed(1)+'s';
+  }
+  if(still){ el('goodBar').style.width='100%'; el('badBar').style.width='88%'; sizes[1].classList.add('on'); el('goodLoad').textContent='1.2s'; el('badLoad').textContent='6.8s'; el('goodOrders').textContent='2'; el('badOrders').textContent='0'; el('badToast').classList.add('show'); return; }
+  run(); requestAnimationFrame(clock);
+})();
 
-  componentDidMount() {
-    this._off = [];
-    const on = (t, e, f, o) => { t.addEventListener(e, f, o); this._off.push(() => t.removeEventListener(e, f, o)); };
-    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
-    const prep = () => document.querySelectorAll('[data-rv]:not([data-rv-on])').forEach(n => {
-      n.setAttribute('data-rv-on', '');
-      if (still) { show(n); return; }
-      n.style.opacity = '0';
-      n.style.transform = 'translateY(24px)';
-      n.style.transition = 'opacity .64s cubic-bezier(.16,1,.3,1), transform .64s cubic-bezier(.16,1,.3,1)';
-      this._io.observe(n);
-    });
-    this._io = new IntersectionObserver((ens) => {
-      ens.filter(e => e.isIntersecting).forEach((e, k) => { this._io.unobserve(e.target); setTimeout(() => show(e.target), k * 70); });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-    this._prep = prep;
-    prep();
-    const t = setTimeout(() => document.querySelectorAll('[data-rv]').forEach(n => { if (n.getBoundingClientRect().top < innerHeight) show(n); }), 3000);
-    this._off.push(() => clearTimeout(t));
-    const sticky = document.querySelector('[data-sticky]'), audit = document.querySelector('[data-audit]');
-    const onScroll = () => {
-      if (!sticky) return;
-      const r = audit ? audit.getBoundingClientRect() : null;
-      const inAudit = r && r.top < innerHeight && r.bottom > 0;
-      sticky.style.transform = (scrollY > 640 && !inAudit) ? 'translate(-50%,0)' : 'translate(-50%,140%)';
-    };
-    on(window, 'scroll', onScroll, { passive: true }); onScroll();
-    if (!still) {
-      const wt = setInterval(() => this.setState(s => ({ wi: (s.wi || 0) + 1 })), 2400);
-      this._off.push(() => clearInterval(wt));
-      const deckN = this.data().deck; let ni = 0;
-      const nt = setInterval(() => { const el = document.querySelector('[data-hero-name]'); if (!el) return; ni = (ni + 1) % deckN.length; el.style.opacity = '0'; setTimeout(() => { el.textContent = deckN[ni].name + ' · ' + deckN[ni].industry; el.style.opacity = '1'; }, 220); }, 4000);
-      this._off.push(() => clearInterval(nt));
-      const vis = document.querySelector('[data-hero-vis]'), tilt = vis && vis.querySelector('[data-hero-tilt]');
-      if (vis && tilt) {
-        on(vis, 'pointermove', (e) => { const r = vis.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; tilt.style.transform = 'translate3d(' + (x * -18) + 'px,' + (y * -14) + 'px,0)'; });
-        on(vis, 'pointerleave', () => { tilt.style.transform = 'none'; });
-      }
-    }
-    const hs = document.querySelector('[data-hs]');
-    if (hs && !still) {
-      const track = hs.querySelector('[data-hs-track]'), bar = hs.querySelector('[data-hs-bar]'), cnt = hs.querySelector('[data-hs-count]');
-      let cur = 0, tgt = 0;
-      const tick = () => {
-        this._hsRaf = requestAnimationFrame(tick);
-        if (innerWidth <= 900 || !track) return;
-        const vw = innerWidth, r = hs.getBoundingClientRect();
-        const need = Math.max(0, track.scrollWidth - vw);
-        const want = need + innerHeight - 74;
-        if (Math.abs(hs.offsetHeight - want) > 4) hs.style.height = want + 'px';
-        const p = Math.min(1, Math.max(0, (74 - r.top) / Math.max(1, hs.offsetHeight - innerHeight + 74)));
-        tgt = p * need; cur += (tgt - cur) * 0.12;
-        track.style.transform = 'translate3d(' + (-cur).toFixed(1) + 'px,0,0)';
-        if (bar) bar.style.width = (p * 100).toFixed(1) + '%';
-        const cards = track.querySelectorAll('[data-hcard]');
-        let best = 0, bd = 1e9;
-        cards.forEach((c, i) => {
-          const cr = c.getBoundingClientRect();
-          const off = (cr.left + cr.width / 2 - vw / 2) / vw;
-          if (Math.abs(off) < bd) { bd = Math.abs(off); best = i; }
-          const k = Math.max(-1, Math.min(1, off));
-          c.style.transform = 'rotateY(' + (-k * 14).toFixed(2) + 'deg) translateY(' + (Math.abs(k) * 26).toFixed(1) + 'px) scale(' + (1 - Math.abs(k) * 0.07).toFixed(3) + ')';
-          const im = c.querySelector('[data-hshot]');
-          if (im) im.style.transform = 'translate3d(' + (k * -5).toFixed(2) + '%,0,0)';
-        });
-        if (cnt) cnt.textContent = String(best + 1).padStart(2, '0');
-        if (best !== this._hsBest) {
-          this._hsBest = best;
-          const pr = this.data().projects[best], cm = hs.querySelector('[data-hs-cap-meta]'), cl = hs.querySelector('[data-hs-cap-line]');
-          if (pr && cm && cl) {
-            cm.style.opacity = cl.style.opacity = '0';
-            clearTimeout(this._capT);
-            this._capT = setTimeout(() => { cm.textContent = pr.name + ' · ' + pr.industry + ' · ' + pr.scope; cl.textContent = pr.line; cm.style.opacity = cl.style.opacity = '1'; }, 180);
-          }
-        }
-        cards.forEach((c, i) => { c.style.opacity = i === best ? '1' : '0.72'; });
-      };
-      this._hsRaf = requestAnimationFrame(tick);
-      this._off.push(() => cancelAnimationFrame(this._hsRaf));
-    }
-    [7000, 16000].forEach((ms, k) => { const id = setTimeout(() => document.querySelectorAll('img[src*="mshots"]').forEach(im => { im.src = im.src.replace(/&r=\d+$/, '') + '&r=' + (k + 1); }), ms); this._off.push(() => clearTimeout(id)); });
+/* ---------- compare: code + highlights ---------- */
+(()=>{
+  const lines=[
+    '<span class="c">{%- comment -%} pdp.liquid {%- endcomment -%}</span>',
+    '<span class="t">{%</span> render <span class="s">\'gallery\'</span>, zoom: true <span class="t">%}</span>',
+    '<span class="t">{%</span> render <span class="s">\'size-picker\'</span> <span class="t">%}</span>',
+    '<span class="t">{%</span> if cart.item_count &gt;= 1 <span class="t">%}</span>',
+    '  <span class="t">{%</span> render <span class="s">\'buy-2-offer\'</span> <span class="t">%}</span>',
+    '<span class="t">{%</span> endif <span class="t">%}</span>',
+    '<span class="t">{%</span> render <span class="s">\'sticky-atc\'</span> <span class="t">%}</span>',
+    '<span class="t">{%</span> render <span class="s">\'upsell\'</span>, max: 2 <span class="t">%}</span>',
+    '<span class="c">// 0 apps. 1.2s LCP.</span>'
+  ];
+  const code=$('#code'), hls=[...document.querySelectorAll('.hl')];
+  const map=[0,1,2,2,2,3,4]; // line -> highlight
+  let i=0;
+  function step(){
+    if(i>=lines.length){ setTimeout(()=>{i=0;hls.forEach(h=>h.classList.remove('on'));step();},2600); return; }
+    code.innerHTML=lines.slice(0,i+1).join('\n')+' <span class="caret"></span>';
+    hls.forEach(h=>h.classList.remove('on'));
+    const hi={1:0,2:1,4:2,6:3,7:4}[i]; if(hi!==undefined) hls[hi].classList.add('on');
+    i++; setTimeout(step,still?0:900);
   }
-  componentDidUpdate() { if (this._prep) this._prep(); }
-  componentWillUnmount() { (this._off || []).forEach(f => f()); if (this._io) this._io.disconnect(); }
-}
+  if(still){ code.innerHTML=lines.join('\n'); hls.forEach(h=>h.classList.add('on')); } else step();
+})();
+
+/* ---------- compare: drag & drop + errors ---------- */
+(()=>{
+  const stage=$('#ddStage'), canvas=$('#ddCanvas'), ghost=$('#ghost'), cursor=$('#cursor'), errs=$('#errs');
+  const blocks=[...stage.querySelectorAll('.blocks span')];
+  const errors=['No CRO, add to cart buried','Mobile UI breaks','Crashed at sale-day traffic','14 apps, 6.2s load'];
+  const H=[46,34,30,24];
+  function render(){ errs.innerHTML=errors.map(e=>`<div class="err"><i>✕</i>${e}</div>`).join(''); canvas.innerHTML=H.map(h=>`<div class="drop" data-h="${h}"></div>`).join(''); }
+  function pos(el){const s=stage.getBoundingClientRect(),r=el.getBoundingClientRect();return {x:r.left-s.left,y:r.top-s.top,w:r.width,h:r.height};}
+  async function cycle(){
+    render();
+    const drops=[...canvas.children], wait=ms=>new Promise(r=>setTimeout(r,ms));
+    for(let k=0;k<drops.length;k++){
+      const b=pos(blocks[k]); ghost.textContent=blocks[k].textContent;
+      ghost.style.transition='none'; cursor.style.transition='none';
+      ghost.style.transform=`translate(${b.x}px,${b.y}px)`; cursor.style.transform=`translate(${b.x+b.w-12}px,${b.y+b.h-6}px)`;
+      ghost.style.opacity='1'; cursor.style.opacity='1'; await wait(60);
+      const c=pos(canvas); const ty=c.y+10+drops.slice(0,k).reduce((a,d)=>a+(+d.dataset.h)+6,0);
+      ghost.style.transition=''; cursor.style.transition='';
+      ghost.style.transform=`translate(${c.x+14}px,${ty}px)`; cursor.style.transform=`translate(${c.x+60}px,${ty+14}px)`;
+      await wait(950); ghost.style.opacity='0';
+      drops[k].classList.add('in'); drops[k].style.height=drops[k].dataset.h+'px'; await wait(260);
+    }
+    cursor.style.opacity='0'; await wait(300);
+    const es=[...errs.children]; for(const e of es){ e.classList.add('show'); await wait(650); }
+    await wait(2600); cursor.style.opacity='1'; cycle();
+  }
+  if(still){ render(); [...canvas.children].forEach(d=>{d.classList.add('in');d.style.height=d.dataset.h+'px'}); [...errs.children].forEach(e=>e.classList.add('show')); cursor.style.display='none'; return; }
+  new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();cycle();}},{threshold:.2}).observe(stage);
+  render(); [...errs.children].forEach(e=>e.classList.add('show')); [...canvas.children].forEach(d=>{d.classList.add('in');d.style.height=d.dataset.h+'px'});
+})();
+
+/* ---------- live list + deck ---------- */
+(()=>{
+  $('#liveList').innerHTML=STORES.map(([n,d])=>`<li><a href="https://${d}/" target="_blank" rel="noopener">${d}<span>↗</span></a></li>`).join('');
+  const card=([n,d,,f])=>`<div class="browser"><div class="chrome"><i></i><i></i><i></i><span>${d}</span></div><img src="shots/${f}-d.jpg" alt=""></div>`;
+  const a=STORES.filter((_,i)=>i%2===0), b=STORES.filter((_,i)=>i%2===1);
+  const col=(list,cls)=>`<div class="col ${cls}">${list.map(card).join('')}${list.map(card).join('')}</div>`;
+  $('#cols').innerHTML=col(a,'')+col(b,'down');
+})();
+
+/* ---------- WhatsApp ---------- */
+const wa=(msg)=>`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+$('#waBtn').href=wa('Hi Rabiro, I want a Shopify store built. Can we talk?');
+
+/* ---------- sticky ---------- */
+(()=>{
+  const st=$('#sticky'), modal=$('#modal');
+  const on=()=>{ st.classList.toggle('on', scrollY>520 && modal.hidden); };
+  addEventListener('scroll',on,{passive:true}); on();
+  window._sticky=on;
+})();
+
+/* ---------- modal + form ---------- */
+(()=>{
+  const modal=$('#modal'), form=$('#leadForm');
+  let last=null;
+  function open(plan){
+    const p=PLANS[plan]||PLANS.custom; last=document.activeElement;
+    $('#f-plan').value=plan; $('#mPill').textContent=p.pill; $('#mTitle').textContent=p.title; $('#mSub').textContent=p.sub;
+    $('#formView').hidden=false; $('#doneView').hidden=true;
+    modal.hidden=false; document.body.style.overflow='hidden'; window._sticky();
+    setTimeout(()=>$('#f-name').focus(),60);
+  }
+  function close(){ modal.hidden=true; document.body.style.overflow=''; window._sticky(); if(last) last.focus(); }
+  document.querySelectorAll('[data-plan]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.plan)));
+  modal.addEventListener('click',e=>{ if(e.target.closest('[data-close]')) close(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.hidden) close(); });
+  const rules={ 'f-name':v=>v.trim().length>1, 'f-phone':v=>v.replace(/\D/g,'').length>=10, 'f-brand':v=>v.trim().length>1, 'f-cat':v=>!!v };
+  Object.keys(rules).forEach(id=>$('#'+id).addEventListener('input',e=>e.target.closest('.f').classList.remove('bad')));
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    let ok=true, first=null;
+    for(const [id,fn] of Object.entries(rules)){ const inp=$('#'+id), good=fn(inp.value); inp.closest('.f').classList.toggle('bad',!good); if(!good){ok=false; first=first||inp;} }
+    if(!ok){ first.focus(); return; }
+    const data=Object.fromEntries(new FormData(form)); data.submitted_at=new Date().toISOString(); data.page='shopify-landing';
+    const btn=$('#submitBtn'); btn.disabled=true; btn.firstChild.textContent='Sending… ';
+    const url=CONFIG.forms[data.plan];
+    if(url){ try{ await fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)}); }catch(err){} }
+    btn.disabled=false; btn.firstChild.textContent='Send my details';
+    const plan=(PLANS[data.plan]||PLANS.custom).pill;
+    $('#doneName').textContent=data.name.trim().split(' ')[0];
+    $('#doneWa').href=wa(`Hi Rabiro, I'm ${data.name} from ${data.brand} (${data.category}). Interested in: ${plan}.${data.website?' Store: '+data.website:''}`);
+    $('#formView').hidden=true; $('#doneView').hidden=false; form.reset();
+  });
+})();
 </script>
-</body>
-</html>
+
+</body></html>
