@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/colors.css">
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/typography.css">
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/effects.css">
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/tokens/base.css">
+<link rel="stylesheet" href="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/styles.css">
+<script src="_ds/rabiro-design-system-cdcf1473-914d-487c-aa4a-d0b87c0c6147/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#07080C;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#82A6F6;text-decoration:none}
+a:hover{color:#B2C8FA}
+::selection{background:rgba(20,86,229,.45);color:#fff}
+@keyframes rbMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rbPulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes rbCaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes rbSweep{0%{transform:translateY(-100%)}100%{transform:translateY(600%)}}
+@media (max-width:940px){[data-desk]{display:none !important}[data-mob]{display:flex !important}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;transition-duration:.001ms !important}}
+</style>
+</helmet>
+<div data-theme="dark" data-root style="background:#07080C;color:#F4F6F9;font-family:var(--font-sans);overflow-x:hidden">
+
+<header data-header style="position:fixed;top:14px;left:0;right:0;z-index:60;padding:0 20px;transition:top .22s cubic-bezier(.16,1,.3,1)">
+<div data-headbar style="max-width:1240px;margin:0 auto;background:rgba(10,12,18,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:12px 14px 12px 20px;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:background .22s ease,border-color .22s ease">
+<a href="#top" style="display:flex;align-items:center;gap:10px"><img src="assets/logo-horizontal-light.png" alt="Rabiro" style="height:26px;display:block"></a>
+<nav data-desk style="display:flex;align-items:center;gap:6px">
+<div data-mega-wrap style="position:relative">
+<button data-mega-trigger type="button" style="appearance:none;background:transparent;border:0;color:#A8B0BF;font-family:var(--font-sans);font-size:15px;font-weight:500;padding:9px 14px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="background:rgba(255,255,255,.06);color:#F4F6F9">Services<span data-mega-chev style="display:inline-block;font-size:10px;transition:transform .22s cubic-bezier(.16,1,.3,1);color:#626A7A">▾</span></button>
+</div>
+<a href="#work" style="color:#A8B0BF;font-size:15px;font-weight:500;padding:9px 14px;border-radius:10px" style-hover="background:rgba(255,255,255,.06);color:#F4F6F9">Work</a>
+<a href="#process" style="color:#A8B0BF;font-size:15px;font-weight:500;padding:9px 14px;border-radius:10px" style-hover="background:rgba(255,255,255,.06);color:#F4F6F9">Process</a>
+<a href="#pricing" style="color:#A8B0BF;font-size:15px;font-weight:500;padding:9px 14px;border-radius:10px" style-hover="background:rgba(255,255,255,.06);color:#F4F6F9">Pricing</a>
+<a href="#why" style="color:#A8B0BF;font-size:15px;font-weight:500;padding:9px 14px;border-radius:10px" style-hover="background:rgba(255,255,255,.06);color:#F4F6F9">About</a>
+</nav>
+<div data-desk style="display:flex;align-items:center;gap:12px">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A;display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:99px;background:#7BCF46;animation:rbPulse 2.4s ease-in-out infinite"></span>open for projects</span>
+<span data-action="open-modal" data-magnet style="display:inline-flex">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="primary" size="sm" hint-size="132px,38px">Let's build →</x-import>
+</span>
+</div>
+<button data-mob data-action="toggle-mobile" type="button" style="display:none;appearance:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:#F4F6F9;width:42px;height:42px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px">
+<span style="display:block;width:16px;height:1.5px;background:#F4F6F9"></span>
+<span style="display:block;width:16px;height:1.5px;background:#F4F6F9"></span>
+</button>
+</div>
+
+<div data-mega style="display:none;max-width:1240px;margin:10px auto 0;background:rgba(12,14,20,.86);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:28px;opacity:0;transform:translateY(-8px);transition:opacity .22s ease,transform .22s cubic-bezier(.16,1,.3,1);box-shadow:0 32px 80px rgba(0,0,0,.55)">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px">
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Shopify development</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:2px">
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Custom stores<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Architecture to launch</span></a>
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Theme development<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Sections, blocks, Liquid</span></a>
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Store redevelopment<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Rebuild without starting over</span></a>
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Shopify 2.0 migration<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Off legacy themes</span></a>
+</div>
+</div>
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Engineering</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:2px">
+<a href="#build" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Custom Shopify apps<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Public and private</span></a>
+<a href="#build" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">APIs &amp; integrations<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">ERP, CRM, WMS, WhatsApp</span></a>
+<a href="#build" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Custom features<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Bundles, configurators, quizzes</span></a>
+<a href="#build" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Headless storefronts<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Only when it's warranted</span></a>
+</div>
+</div>
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Growth</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:2px">
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">CRO<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">UX, testing, conversion builds</span></a>
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Performance<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Core Web Vitals, payload</span></a>
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">UX optimisation<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">PDP, collection, cart, checkout</span></a>
+<a href="#services" style="display:block;padding:9px 10px;margin-left:-10px;border-radius:10px;color:#F4F6F9;font-size:15px;font-weight:500" style-hover="background:rgba(255,255,255,.06)">Technical audits<span style="display:block;font-size:13px;color:#838B9B;font-weight:400;margin-top:2px">Before anyone quotes you</span></a>
+</div>
+</div>
+<div style="background:rgba(20,86,229,.10);border:1px solid rgba(76,125,239,.28);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:18px">
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#82A6F6">Free</span>
+<p style="margin:12px 0 0;font-size:17px;font-weight:600;letter-spacing:-.016em;line-height:1.3">Get a store audit before you spend anything.</p>
+<p style="margin:8px 0 0;font-size:13px;line-height:1.55;color:#A8B0BF">Theme condition, speed, UX gaps and what we'd actually change.</p>
+</div>
+<span data-action="open-modal" style="display:inline-flex">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="secondary" size="sm" hint-size="150px,38px">Get a free audit →</x-import>
+</span>
+</div>
+</div>
+</div>
+</header>
+
+<div data-mobile-menu style="display:none;position:fixed;inset:0;z-index:70;background:rgba(7,8,12,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:22px;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between">
+<img src="assets/logo-horizontal-light.png" alt="Rabiro" style="height:26px">
+<button data-action="toggle-mobile" type="button" style="appearance:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:#F4F6F9;width:42px;height:42px;border-radius:12px;font-size:18px;cursor:pointer">✕</button>
+</div>
+<nav style="margin-top:44px;display:flex;flex-direction:column;gap:2px">
+<a data-action="close-mobile" href="#services" style="color:#F4F6F9;font-size:30px;font-weight:600;letter-spacing:-.028em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)">Services</a>
+<a data-action="close-mobile" href="#work" style="color:#F4F6F9;font-size:30px;font-weight:600;letter-spacing:-.028em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)">Work</a>
+<a data-action="close-mobile" href="#process" style="color:#F4F6F9;font-size:30px;font-weight:600;letter-spacing:-.028em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)">Process</a>
+<a data-action="close-mobile" href="#pricing" style="color:#F4F6F9;font-size:30px;font-weight:600;letter-spacing:-.028em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)">Pricing</a>
+<a data-action="close-mobile" href="#faq" style="color:#F4F6F9;font-size:30px;font-weight:600;letter-spacing:-.028em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)">FAQ</a>
+</nav>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:14px">
+<span data-action="open-modal" style="display:block">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="primary" size="lg" full-width="{{ true }}" hint-size="100%,52px">Build my Shopify store →</x-import>
+</span>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">hello@rabiro.com · Mohali, IN</span>
+</div>
+</div>
+
+<section id="top" data-hero style="position:relative;overflow:hidden;padding:170px 20px 90px">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 20%,#000 30%,transparent 100%);mask-image:radial-gradient(ellipse 90% 70% at 50% 20%,#000 30%,transparent 100%);pointer-events:none"></div>
+<div style="position:absolute;top:-460px;right:-180px;width:1100px;height:1100px;background:radial-gradient(circle,rgba(20,86,229,.20) 0%,rgba(20,86,229,0) 62%);pointer-events:none"></div>
+<div data-glow style="position:absolute;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;background:radial-gradient(circle,rgba(23,164,140,.13) 0%,rgba(23,164,140,0) 65%);pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+
+<div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px;align-items:center">
+<div>
+<span data-rv style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B;border:1px solid rgba(255,255,255,.10);border-radius:99px;padding:7px 14px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46"></span>Official Shopify Partner · 150 stores built</span>
+<h1 data-rv data-rv-d="80" style="margin:26px 0 0;font-size:clamp(40px,6.4vw,78px);font-weight:800;letter-spacing:-.042em;line-height:.94;max-width:14ch;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">Shopify stores. Built like <em style="font-family:var(--font-serif);font-weight:400;font-style:italic;letter-spacing:-.02em">products</em>.</h1>
+<p data-rv data-rv-d="160" style="margin:30px 0 0;font-size:19px;line-height:1.6;color:#A8B0BF;max-width:54ch;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">Custom Shopify development for brands that need more than another off-the-shelf theme. Design, engineering, CRO and performance — from one team that ships.</p>
+<div data-rv data-rv-d="240" style="margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span data-action="open-modal" data-magnet style="display:inline-flex">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="primary" size="lg" hint-size="240px,52px">Build my Shopify store →</x-import>
+</span>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="ghost" size="lg" href="#work" hint-size="150px,52px">See our work</x-import>
+</div>
+<div data-rv data-rv-d="320" style="margin-top:44px;display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#626A7A;opacity:0;transition:opacity .64s cubic-bezier(.16,1,.3,1)">
+<span>theme: custom</span><span>apps: connected</span><span>CRO: active</span><span>status: production</span>
+</div>
+</div>
+
+<div data-rv data-rv-d="200" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)">
+<div style="position:relative;background:rgba(15,18,25,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.10);border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5)">
+<div style="display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)">
+<span style="width:9px;height:9px;border-radius:99px;background:#3A4050"></span><span style="width:9px;height:9px;border-radius:99px;background:#3A4050"></span><span style="width:9px;height:9px;border-radius:99px;background:#3A4050"></span>
+<span style="margin-left:8px;font-family:var(--font-mono);font-size:11px;color:#626A7A;letter-spacing:.04em">sections/product-bundle.liquid</span>
+<span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7BCF46">saved</span>
+</div>
+<pre style="margin:0;padding:22px 20px;font-family:var(--font-mono);font-size:12.5px;line-height:1.85;color:#A8B0BF;overflow-x:auto"><span style="color:#626A7A">{%</span><span style="color:#82A6F6"> liquid</span>
+  <span style="color:#82A6F6">assign</span> bundle <span style="color:#626A7A">=</span> product.metafields.custom.bundle
+  <span style="color:#82A6F6">if</span> bundle <span style="color:#626A7A">!=</span> blank
+    <span style="color:#82A6F6">render</span> <span style="color:#A5E181">'bundle-builder'</span>, config: bundle
+  <span style="color:#82A6F6">endif</span>
+<span style="color:#626A7A">%}</span>
+
+<span style="color:#626A7A">// cart transform · no app tax</span>
+<span style="color:#82A6F6">await</span> <span style="color:#F4F6F9">fetch</span>(<span style="color:#A5E181">'/cart/add.js'</span>, { <span style="color:#F4F6F9">method</span>: <span style="color:#A5E181">'POST'</span> })<span data-caret style="display:inline-block;width:7px;height:15px;background:#7BCF46;vertical-align:-2px;margin-left:3px;animation:rbCaret 1.1s step-end infinite"></span></pre>
+<div style="display:flex;align-items:center;gap:0;border-top:1px solid rgba(255,255,255,.08);font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase">
+<span data-step="0" style="flex:1;padding:12px 14px;color:#626A7A;transition:color .3s ease,background .3s ease">build</span>
+<span style="color:#3A4050">→</span>
+<span data-step="1" style="flex:1;padding:12px 14px;color:#626A7A;transition:color .3s ease,background .3s ease">test</span>
+<span style="color:#3A4050">→</span>
+<span data-step="2" style="flex:1;padding:12px 14px;color:#626A7A;transition:color .3s ease,background .3s ease">deploy</span>
+</div>
+</div>
+
+<div style="position:absolute;left:-26px;bottom:-46px;background:rgba(12,14,20,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 16px;box-shadow:0 24px 60px rgba(0,0,0,.5);animation:rbFloat 7s ease-in-out infinite">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">storefront</span>
+<div style="margin-top:10px;display:flex;align-items:center;gap:12px">
+<span style="font-size:28px;font-weight:200;letter-spacing:-.03em;line-height:1">150</span>
+<span style="font-size:12px;line-height:1.35;color:#A8B0BF">Shopify stores<br>built &amp; shipped</span>
+</div>
+</div>
+
+<div style="position:absolute;right:-18px;top:-34px;background:rgba(12,14,20,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:13px 15px;box-shadow:0 24px 60px rgba(0,0,0,.5);animation:rbFloat 9s ease-in-out infinite">
+<div style="display:flex;flex-direction:column;gap:7px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#838B9B">
+<span style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46"></span>liquid · sections</span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:99px;background:#82A6F6"></span>admin api</span>
+<span style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:99px;background:#17A48C"></span>webhooks</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="position:relative;padding:22px 0 0;border-top:1px solid rgba(255,255,255,.08);overflow:hidden">
+<div style="display:flex;width:max-content;animation:rbMarquee 42s linear infinite;will-change:transform">
+<div style="display:flex;align-items:center;gap:34px;padding-right:34px;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#515869;white-space:nowrap">
+<span>Shopify Development</span><span style="color:#1456E5">·</span><span>CRO</span><span style="color:#1456E5">·</span><span>Custom Apps</span><span style="color:#1456E5">·</span><span>Performance</span><span style="color:#1456E5">·</span><span>Integrations</span><span style="color:#1456E5">·</span><span>Theme Engineering</span><span style="color:#1456E5">·</span><span>Headless</span><span style="color:#1456E5">·</span><span>Technical Audits</span><span style="color:#1456E5">·</span>
+</div>
+<div style="display:flex;align-items:center;gap:34px;padding-right:34px;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#515869;white-space:nowrap" aria-hidden="true">
+<span>Shopify Development</span><span style="color:#1456E5">·</span><span>CRO</span><span style="color:#1456E5">·</span><span>Custom Apps</span><span style="color:#1456E5">·</span><span>Performance</span><span style="color:#1456E5">·</span><span>Integrations</span><span style="color:#1456E5">·</span><span>Theme Engineering</span><span style="color:#1456E5">·</span><span>Headless</span><span style="color:#1456E5">·</span><span>Technical Audits</span><span style="color:#1456E5">·</span>
+</div>
+</div>
+<div style="max-width:1240px;margin:0 auto;padding:44px 20px 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;border-top:1px solid rgba(255,255,255,.08);padding-top:44px">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.StatBlock" value="150" label="Shopify stores built" sub="Official Shopify Partner" hint-size="100%,110px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.StatBlock" value="80" label="Websites delivered" sub="Custom &amp; WordPress" hint-size="100%,110px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.StatBlock" value="₹85.6L" label="Ad spend managed" sub="Meta Partner Center" hint-size="100%,110px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.StatBlock" value="13" label="People in Mohali" sub="One team, no outsourcing" hint-size="100%,110px"></x-import>
+</div>
+</div>
+</section>
+
+<section style="padding:120px 20px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">The diagnosis</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02;max-width:18ch">Your theme isn't the problem. Your store might be.</h2>
+<p style="margin:22px 0 0;font-size:17px;line-height:1.65;color:#A8B0BF;max-width:58ch">Most stores don't fail because of the theme they picked. They fail because nobody engineered what happened after it was installed.</p>
+</div>
+<div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+<article data-rv data-rv-d="0" style="background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:26px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="border-color:rgba(255,255,255,.20);background:#141822">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">01</span>
+<h3 style="margin:16px 0 0;font-size:19px;font-weight:600;letter-spacing:-.014em">Slow storefront</h3>
+<p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Every second matters. App bloat and unoptimised assets cost you sessions before the first scroll.</p>
+</article>
+<article data-rv data-rv-d="60" style="background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:26px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="border-color:rgba(255,255,255,.20);background:#141822">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">02</span>
+<h3 style="margin:16px 0 0;font-size:19px;font-weight:600;letter-spacing:-.014em">Generic UX</h3>
+<p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Templates don't understand your customer, your catalogue or the way people actually buy from you.</p>
+</article>
+<article data-rv data-rv-d="120" style="background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:26px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="border-color:rgba(255,255,255,.20);background:#141822">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">03</span>
+<h3 style="margin:16px 0 0;font-size:19px;font-weight:600;letter-spacing:-.014em">Poor conversion</h3>
+<p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Traffic means nothing if the store doesn't sell. Most PDPs are decorated, not designed to convert.</p>
+</article>
+<article data-rv data-rv-d="180" style="background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:26px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="border-color:rgba(255,255,255,.20);background:#141822">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">04</span>
+<h3 style="margin:16px 0 0;font-size:19px;font-weight:600;letter-spacing:-.014em">Limited functionality</h3>
+<p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Your business needs features your theme was never built for — and six apps stacked on top isn't the answer.</p>
+</article>
+<article data-rv data-rv-d="240" style="background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:26px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="border-color:rgba(255,255,255,.20);background:#141822">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">05</span>
+<h3 style="margin:16px 0 0;font-size:19px;font-weight:600;letter-spacing:-.014em">Technical debt</h3>
+<p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Quick fixes become expensive problems. Every freelancer patch makes the next change cost more.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto;position:relative;border:1px solid rgba(255,255,255,.10);border-radius:26px;overflow:hidden;background:#0B0D13">
+<div style="position:absolute;top:-260px;left:-140px;width:760px;height:760px;background:radial-gradient(circle,rgba(23,164,140,.12) 0%,rgba(23,164,140,0) 62%);pointer-events:none"></div>
+<div style="position:relative;padding:clamp(32px,5vw,64px)">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">The approach</span>
+<h2 style="margin:20px 0 0;font-size:clamp(28px,3.6vw,48px);font-weight:700;letter-spacing:-.034em;line-height:1.04;max-width:20ch">We build the Shopify layer your business actually needs.</h2>
+<p style="margin:22px 0 0;font-size:17px;line-height:1.65;color:#A8B0BF;max-width:62ch">Design, development, CRO and performance aren't separate line items here. They're one chain — and the chain only works if every link is owned by the same team.</p>
+</div>
+<div data-rv data-rv-d="120" style="margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;opacity:0;transition:opacity .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F4F6F9;border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:10px 18px;background:rgba(255,255,255,.03)">Design</span>
+<span style="color:#3A4050">→</span>
+<span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F4F6F9;border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:10px 18px;background:rgba(255,255,255,.03)">UX</span>
+<span style="color:#3A4050">→</span>
+<span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F4F6F9;border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:10px 18px;background:rgba(255,255,255,.03)">Development</span>
+<span style="color:#3A4050">→</span>
+<span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F4F6F9;border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:10px 18px;background:rgba(255,255,255,.03)">Performance</span>
+<span style="color:#3A4050">→</span>
+<span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#F4F6F9;border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:10px 18px;background:rgba(255,255,255,.03)">CRO</span>
+<span style="color:#3A4050">→</span>
+<span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#07080C;border:1px solid transparent;border-radius:99px;padding:10px 18px;background:var(--gradient-brand);font-weight:600">Revenue</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="services" style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<div>
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Services</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02">Eight ways we touch a store.</h2>
+</div>
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#626A7A">click a row to expand</span>
+</div>
+
+<div style="margin-top:44px;border-top:1px solid rgba(255,255,255,.10)">
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">01</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Custom Shopify Stores</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">From architecture to launch, we build stores around your brand, your customers and your business model — information architecture, custom sections, merchandising logic and a theme your team can actually run.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">02</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Store Redevelopment</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Already on Shopify? We rebuild outdated stores without throwing away what already works — audit first, keep the pages that convert, re-engineer everything else.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">03</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Custom Shopify Apps</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Need functionality Shopify doesn't provide out of the box? We build private and public apps against the Admin, Storefront and Function APIs — embedded in admin where your team already works.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">04</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Conversion Rate Optimisation</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Turn more of the traffic you already pay for into customers — UX work, analytics and event tracking, structured testing, and the development to actually ship the winning variant.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">05</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Performance Engineering</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Core Web Vitals, render-blocking scripts, image pipelines, app audit and removal, Liquid rendering cost. Speed is a build decision, not a plugin.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">06</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Custom Features</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Bundle builders, subscriptions, configurators, calculators, quiz funnels, advanced product experiences and the workflows behind them.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">07</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Integrations</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Connect Shopify to the tools the business already runs on — ERP, CRM, WMS, accounting, WhatsApp, loyalty, analytics and whatever else is holding the ops together.</p>
+</div>
+</div>
+<div data-svc style="border-bottom:1px solid rgba(255,255,255,.10);cursor:pointer" style-hover="background:rgba(255,255,255,.025)">
+<div style="display:flex;align-items:center;gap:20px;padding:24px 8px">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:#626A7A;width:26px;flex:none">08</span>
+<h3 style="margin:0;flex:1;font-size:clamp(20px,2.2vw,28px);font-weight:600;letter-spacing:-.022em">Technical Support</h3>
+<span data-svc-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1);flex:none">+</span>
+</div>
+<div data-svc-body style="max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1)">
+<p style="margin:0;padding:0 8px 26px 66px;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:70ch">Ongoing development, optimisation and maintenance — a retainer with a named developer, not a ticket queue.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="build" style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Capability</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02;max-width:18ch">What we can build inside Shopify.</h2>
+</div>
+<div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px">
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Product configurators</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Advanced product pages</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Bundle builders</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Subscription experiences</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Quiz funnels</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Recommendation engines</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Custom landing pages</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Advanced collections</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Custom search &amp; filters</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(76,125,239,.45);background:rgba(20,86,229,.09)"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF;flex:none"></span>Custom merchandising</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(123,207,70,.45);background:rgba(123,207,70,.08)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46;flex:none"></span>ERP integrations</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(123,207,70,.45);background:rgba(123,207,70,.08)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46;flex:none"></span>CRM integrations</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(123,207,70,.45);background:rgba(123,207,70,.08)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46;flex:none"></span>WhatsApp automation</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(123,207,70,.45);background:rgba(123,207,70,.08)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46;flex:none"></span>Loyalty programmes</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(123,207,70,.45);background:rgba(123,207,70,.08)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46;flex:none"></span>Analytics &amp; events</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(123,207,70,.45);background:rgba(123,207,70,.08)"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46;flex:none"></span>Personalisation</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,.30);background:rgba(255,255,255,.05)"><span style="width:5px;height:5px;border-radius:99px;background:#A8B0BF;flex:none"></span>Post-purchase flows</span>
+<span data-tile style="display:flex;align-items:center;gap:11px;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.02);font-size:14.5px;color:#D6DAE3;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,background .22s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,.30);background:rgba(255,255,255,.05)"><span style="width:5px;height:5px;border-radius:99px;background:#A8B0BF;flex:none"></span>Headless storefronts</span>
+</div>
+</div>
+</section>
+
+<section style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px;align-items:center">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">The stack</span>
+<h2 style="margin:20px 0 0;font-size:clamp(28px,3.6vw,48px);font-weight:700;letter-spacing:-.034em;line-height:1.04;max-width:17ch">Behind every beautiful store is a lot of engineering.</h2>
+<p style="margin:22px 0 0;font-size:17px;line-height:1.65;color:#A8B0BF;max-width:54ch">Seven layers, one owner. When the CRO team and the people writing Liquid are the same people, the fix ships the same week it's found.</p>
+<div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:10px">
+<span data-action="open-modal" data-magnet style="display:inline-flex">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="secondary" hint-size="180px,44px">Talk to a developer →</x-import>
+</span>
+</div>
+</div>
+<div data-rv data-rv-d="100" style="opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)">
+<div style="position:relative;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:10px 10px">
+<div style="position:absolute;left:39px;top:34px;bottom:34px;width:1px;background:linear-gradient(180deg,rgba(20,86,229,.9),rgba(23,164,140,.7),rgba(123,207,70,.8))"></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">Shopify</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">platform</span></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#4C7DEF"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">Liquid</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">templating</span></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#17A48C"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">JavaScript</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">behaviour</span></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#17A48C"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">APIs</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">admin · storefront</span></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#52BE5C"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">Apps</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">custom · audited</span></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">Analytics</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">events · attribution</span></div>
+<div data-layer style="position:relative;display:flex;align-items:center;gap:18px;padding:13px 16px;border-radius:14px;transition:background .22s ease" style-hover="background:rgba(255,255,255,.04)"><span style="width:19px;height:19px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:#0F1219;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:99px;background:#7BCF46"></span></span><span style="font-size:16px;font-weight:600;letter-spacing:-.012em">CRO</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">continuous</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="work" style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<div>
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Selected work</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02">Stores we've shipped.</h2>
+</div>
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#626A7A">09 projects · drop screenshots to fill</span>
+</div>
+
+<sc-if value="{{ showFeaturedCase }}" hint-placeholder-val="{{ true }}">
+<article data-rv data-rv-d="80" style="margin-top:44px;border:1px solid rgba(255,255,255,.10);border-radius:26px;overflow:hidden;background:#0B0D13;opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)">
+<div style="padding:clamp(20px,3vw,34px) clamp(20px,3vw,34px) 0">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7BCF46;border:1px solid rgba(123,207,70,.32);border-radius:99px;padding:6px 12px">Featured build</span>
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:#626A7A">houseofbaani.com</span>
+</div>
+</div>
+<div data-mock style="margin:24px clamp(20px,3vw,34px) 0;border:1px solid rgba(255,255,255,.12);border-radius:16px 16px 0 0;overflow:hidden;background:#0F1219;transition:transform .4s cubic-bezier(.16,1,.3,1)">
+<div style="display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)">
+<span style="width:8px;height:8px;border-radius:99px;background:#3A4050"></span><span style="width:8px;height:8px;border-radius:99px;background:#3A4050"></span><span style="width:8px;height:8px;border-radius:99px;background:#3A4050"></span>
+<span style="margin-left:10px;flex:1;max-width:320px;background:rgba(255,255,255,.05);border-radius:99px;padding:4px 12px;font-family:var(--font-mono);font-size:10.5px;color:#838B9B">houseofbaani.com</span>
+</div>
+<div style="position:relative;aspect-ratio:16/9;background:#0A0C12">
+<image-slot id="work-baani" shape="rect" placeholder="House of Baani — desktop screenshot"></image-slot>
+</div>
+</div>
+<div style="padding:clamp(24px,3vw,36px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:32px;border-top:1px solid rgba(255,255,255,.08);margin-top:-1px">
+<div>
+<h3 style="margin:0;font-size:clamp(24px,2.8vw,34px);font-weight:700;letter-spacing:-.028em">House of Baani</h3>
+<p style="margin:14px 0 0;font-size:16px;line-height:1.65;color:#A8B0BF;max-width:44ch">A custom Shopify build — storefront design, theme engineering and conversion work carried through to launch.</p>
+<div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A8B0BF;border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:6px 11px">UX/UI</span>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A8B0BF;border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:6px 11px">Development</span>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A8B0BF;border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:6px 11px">CRO</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Challenge</span><p style="margin:9px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">A template storefront that couldn't carry the brand or the catalogue structure the business needed.</p></div>
+<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">What we built</span><p style="margin:9px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Custom sections library, reworked product and collection templates, merchandising and content controls the team can run without a developer.</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Development</span><p style="margin:9px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">Shopify 2.0 theme architecture, Liquid section schema, asset and image pipeline, app audit.</p></div>
+<div><span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Outcome</span><p style="margin:9px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF">A storefront the brand owns end to end — and an architecture that takes new features without a rebuild. <em style="color:#626A7A;font-style:normal;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em">[metrics to be added]</em></p></div>
+</div>
+</div>
+</article>
+</sc-if>
+
+<div style="margin-top:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:20px">
+<article data-work data-rv style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">untappedldn.com</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-untapped" shape="rect" placeholder="Untapped LDN — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Untapped LDN</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Shopify storefront design and front-end development.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · theme · ux</span></div>
+</article>
+<article data-work data-rv data-rv-d="60" style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">justwhatworks.in</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-jww" shape="rect" placeholder="Just What Works — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Just What Works</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Custom Shopify build with conversion-focused templates.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · cro · development</span></div>
+</article>
+<article data-work data-rv data-rv-d="120" style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">jeevrasa.com</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-jeevrasa" shape="rect" placeholder="Jeevrasa — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Jeevrasa</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Storefront development with custom product experiences.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · custom sections</span></div>
+</article>
+<article data-work data-rv style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">wearduds.com</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-duds" shape="rect" placeholder="Wear Duds — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Wear Duds</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Apparel storefront — theme development and UX work.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · apparel · ux</span></div>
+</article>
+<article data-work data-rv data-rv-d="60" style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">mhari.in</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-mhari" shape="rect" placeholder="Mhari — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Mhari</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">D2C storefront build with custom collection merchandising.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · merchandising</span></div>
+</article>
+<article data-work data-rv data-rv-d="120" style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">qreative.in</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-qreative" shape="rect" placeholder="Qreative — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Qreative</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Website design and front-end development.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">web · development</span></div>
+</article>
+<article data-work data-rv style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">bigrocknutrition.in</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-bigrock" shape="rect" placeholder="Big Rock Nutrition — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Big Rock Nutrition</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Supplements storefront — PDP and bundling experience.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · pdp · bundles</span></div>
+</article>
+<article data-work data-rv data-rv-d="60" style="border:1px solid rgba(255,255,255,.10);border-radius:20px;overflow:hidden;background:#0F1219;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<div style="display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="width:7px;height:7px;border-radius:99px;background:#3A4050"></span><span style="margin-left:8px;font-family:var(--font-mono);font-size:10px;color:#626A7A">chaosandco.in</span></div>
+<div data-shot style="position:relative;aspect-ratio:16/10;background:#0A0C12;overflow:hidden"><image-slot id="work-chaos" shape="rect" placeholder="Chaos &amp; Co — screenshot"></image-slot></div>
+<div style="padding:20px 20px 22px"><h3 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.016em">Chaos &amp; Co</h3><p style="margin:9px 0 0;font-size:14.5px;line-height:1.55;color:#A8B0BF">Brand storefront with editorial product presentation.</p><span style="display:block;margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">shopify · editorial</span></div>
+</article>
+<article data-work data-rv data-rv-d="120" style="border:1px dashed rgba(255,255,255,.16);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.015);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:32px;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(76,125,239,.5)">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">next</span>
+<h3 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.022em;max-width:14ch">Your store could be the next one here.</h3>
+<span data-action="open-modal" style="display:inline-flex">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="secondary" size="sm" hint-size="150px,38px">Start a project →</x-import>
+</span>
+</article>
+</div>
+</div>
+</section>
+
+<section id="process" style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Process</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02;max-width:16ch">Seven steps, no surprises.</h2>
+</div>
+<div style="margin-top:48px;position:relative">
+<div style="position:absolute;left:0;right:0;top:12px;height:1px;background:linear-gradient(90deg,rgba(20,86,229,.7),rgba(23,164,140,.6),rgba(123,207,70,.7))"></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:28px 20px">
+<div data-rv data-rv-d="0" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#A8B0BF">01</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Audit</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">Understand the store, the business and what's actually broken.</p></div>
+<div data-rv data-rv-d="50" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#A8B0BF">02</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Strategy</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">Define UX, architecture and the conversion opportunities worth building.</p></div>
+<div data-rv data-rv-d="100" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#A8B0BF">03</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Design</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">Create the experience and the interface, screen by screen.</p></div>
+<div data-rv data-rv-d="150" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(76,125,239,.6);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#82A6F6">04</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Develop</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">Build the theme, features, apps and integrations.</p></div>
+<div data-rv data-rv-d="200" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#A8B0BF">05</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Test</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">QA across devices, browsers and every purchase flow.</p></div>
+<div data-rv data-rv-d="250" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#A8B0BF">06</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Launch</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">Deploy, monitor and watch the first real traffic land.</p></div>
+<div data-rv data-rv-d="300" style="position:relative;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><span style="display:block;width:25px;height:25px;border-radius:99px;background:#07080C;border:1px solid rgba(123,207,70,.6);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9.5px;color:#A5E181">07</span><h3 style="margin:18px 0 0;font-size:17px;font-weight:600;letter-spacing:-.014em">Improve</h3><p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:#838B9B">CRO, performance and development continue after launch.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="pricing" style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Pricing</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02;max-width:18ch">Pick your starting point. We'll handle the rest.</h2>
+<p style="margin:22px 0 0;font-size:17px;line-height:1.65;color:#A8B0BF;max-width:58ch">Every project is quoted after an audit. These are the four shapes most engagements take.</p>
+</div>
+<div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;align-items:stretch">
+<div data-rv style="display:flex;flex-direction:column;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:28px 24px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">01</span>
+<h3 style="margin:14px 0 0;font-size:21px;font-weight:700;letter-spacing:-.018em">Starter</h3>
+<p style="margin:16px 0 0;font-size:34px;font-weight:200;letter-spacing:-.03em;line-height:1">₹50,000<span style="font-size:18px;color:#838B9B">+</span></p>
+<p style="margin:14px 0 0;font-size:14.5px;line-height:1.6;color:#A8B0BF">For brands needing a strong Shopify foundation.</p>
+<div style="margin:22px 0 26px;display:flex;flex-direction:column;gap:9px;font-size:14px;color:#A8B0BF">
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Shopify 2.0 theme setup &amp; customisation</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Core templates: home, PDP, collection, cart</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Responsive build &amp; QA</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Apps configured, payments &amp; shipping</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>2 weeks post-launch support</span>
+</div>
+<span data-action="open-modal" style="margin-top:auto;display:block">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="secondary" full-width="{{ true }}" hint-size="100%,44px">Get a quote →</x-import>
+</span>
+</div>
+<div data-rv data-rv-d="60" style="display:flex;flex-direction:column;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:28px 24px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">02</span>
+<h3 style="margin:14px 0 0;font-size:21px;font-weight:700;letter-spacing:-.018em">Growth</h3>
+<p style="margin:16px 0 0;font-size:34px;font-weight:200;letter-spacing:-.03em;line-height:1">₹XX,XXX<span style="font-size:18px;color:#838B9B">+</span></p>
+<p style="margin:14px 0 0;font-size:14.5px;line-height:1.6;color:#A8B0BF">For brands needing deeper customisation.</p>
+<div style="margin:22px 0 26px;display:flex;flex-direction:column;gap:9px;font-size:14px;color:#A8B0BF">
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Everything in Starter</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Custom section library</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Bespoke PDP &amp; collection experience</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Two third-party integrations</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Performance pass &amp; analytics setup</span>
+</div>
+<span data-action="open-modal" style="margin-top:auto;display:block">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="secondary" full-width="{{ true }}" hint-size="100%,44px">Get a quote →</x-import>
+</span>
+</div>
+<div data-rv data-rv-d="120" style="display:flex;flex-direction:column;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:28px 24px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(255,255,255,.22)">
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">03</span>
+<h3 style="margin:14px 0 0;font-size:21px;font-weight:700;letter-spacing:-.018em">Scale</h3>
+<p style="margin:16px 0 0;font-size:34px;font-weight:200;letter-spacing:-.03em;line-height:1">₹XX,XXX<span style="font-size:18px;color:#838B9B">+</span></p>
+<p style="margin:14px 0 0;font-size:14.5px;line-height:1.6;color:#A8B0BF">For complex builds and growth-focused development.</p>
+<div style="margin:22px 0 26px;display:flex;flex-direction:column;gap:9px;font-size:14px;color:#A8B0BF">
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Everything in Growth</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Full custom design &amp; build</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Advanced search, filters, merchandising</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>Bundles or subscriptions</span>
+<span style="display:flex;gap:10px"><span style="color:#4C7DEF">✓</span>CRO programme &amp; 60 days support</span>
+</div>
+<span data-action="open-modal" style="margin-top:auto;display:block">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="secondary" full-width="{{ true }}" hint-size="100%,44px">Get a quote →</x-import>
+</span>
+</div>
+<div data-rv data-rv-d="180" style="position:relative;display:flex;flex-direction:column;background:#0B0E16;border:1px solid rgba(76,125,239,.34);border-radius:18px;padding:28px 24px;overflow:hidden;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1),border-color .22s ease" style-hover="border-color:rgba(76,125,239,.6)">
+<span style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient-brand)"></span>
+<span style="position:absolute;top:-140px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(20,86,229,.18) 0%,rgba(20,86,229,0) 65%);pointer-events:none"></span>
+<span style="position:relative;font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#82A6F6">04 · custom</span>
+<h3 style="position:relative;margin:14px 0 0;font-size:21px;font-weight:700;letter-spacing:-.018em">Custom Shopify Engineering</h3>
+<p style="position:relative;margin:16px 0 0;font-size:34px;font-weight:200;letter-spacing:-.03em;line-height:1">₹1.5L<span style="font-size:18px;color:#838B9B">+</span></p>
+<p style="position:relative;margin:14px 0 0;font-size:14.5px;line-height:1.6;color:#A8B0BF">For brands that have outgrown templates.</p>
+<div style="position:relative;margin:22px 0 26px;display:flex;flex-direction:column;gap:9px;font-size:14px;color:#A8B0BF">
+<span style="display:flex;gap:10px"><span style="color:#7BCF46">✓</span>Custom Shopify app development</span>
+<span style="display:flex;gap:10px"><span style="color:#7BCF46">✓</span>ERP / CRM / WMS integrations</span>
+<span style="display:flex;gap:10px"><span style="color:#7BCF46">✓</span>Headless where it's warranted</span>
+<span style="display:flex;gap:10px"><span style="color:#7BCF46">✓</span>Dedicated developer &amp; ongoing roadmap</span>
+</div>
+<span style="position:relative;display:block;margin-bottom:16px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#626A7A">Custom scope · Custom architecture · Custom development</span>
+<span data-action="open-modal" data-magnet style="position:relative;margin-top:auto;display:block">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="primary" full-width="{{ true }}" hint-size="100%,44px">Discuss your project →</x-import>
+</span>
+</div>
+</div>
+
+<sc-if value="{{ showComparison }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:20px;border:1px solid rgba(255,255,255,.10);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.015)">
+<button data-action="toggle-compare" type="button" style="width:100%;appearance:none;background:transparent;border:0;color:#F4F6F9;font-family:var(--font-sans);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-size:15px;font-weight:600;letter-spacing:-.012em" style-hover="background:rgba(255,255,255,.03)">Compare what's included<span data-compare-plus style="font-size:20px;color:#626A7A;transition:transform .28s cubic-bezier(.16,1,.3,1)">+</span></button>
+<div data-compare-body style="max-height:0;overflow:hidden;transition:max-height .42s cubic-bezier(.16,1,.3,1)">
+<div style="overflow-x:auto;padding:0 8px 8px">
+<table style="width:100%;min-width:620px;border-collapse:collapse;font-size:14px">
+<thead><tr>
+<th style="text-align:left;padding:14px 16px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A;font-weight:400;border-bottom:1px solid rgba(255,255,255,.10)">Included</th>
+<th style="text-align:center;padding:14px 12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#838B9B;font-weight:400;border-bottom:1px solid rgba(255,255,255,.10)">Starter</th>
+<th style="text-align:center;padding:14px 12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#838B9B;font-weight:400;border-bottom:1px solid rgba(255,255,255,.10)">Growth</th>
+<th style="text-align:center;padding:14px 12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#838B9B;font-weight:400;border-bottom:1px solid rgba(255,255,255,.10)">Scale</th>
+<th style="text-align:center;padding:14px 12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#82A6F6;font-weight:400;border-bottom:1px solid rgba(255,255,255,.10)">Custom</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Custom UI</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Shopify development</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Responsive design</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Custom sections</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Custom functionality</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">CRO</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Performance optimisation</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Integrations</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Custom app development</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">Analytics &amp; events</td><td style="text-align:center;color:#3A4050;border-bottom:1px solid rgba(255,255,255,.06)">—</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF;border-bottom:1px solid rgba(255,255,255,.06)">QA across devices</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#4C7DEF;border-bottom:1px solid rgba(255,255,255,.06)">✓</td><td style="text-align:center;color:#7BCF46;border-bottom:1px solid rgba(255,255,255,.06)">✓</td></tr>
+<tr><td style="padding:13px 16px;color:#A8B0BF">Post-launch support</td><td style="text-align:center;color:#838B9B;font-family:var(--font-mono);font-size:11px">2 wks</td><td style="text-align:center;color:#838B9B;font-family:var(--font-mono);font-size:11px">30 days</td><td style="text-align:center;color:#838B9B;font-family:var(--font-mono);font-size:11px">60 days</td><td style="text-align:center;color:#A5E181;font-family:var(--font-mono);font-size:11px">retainer</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="why" style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Why us</span>
+<h2 style="margin:20px 0 0;font-size:clamp(30px,3.9vw,52px);font-weight:700;letter-spacing:-.034em;line-height:1.02;max-width:17ch">Reasons that hold up in a technical conversation.</h2>
+</div>
+<div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border-top:1px solid rgba(255,255,255,.10)">
+<div data-rv style="padding:30px 28px 30px 0;border-bottom:1px solid rgba(255,255,255,.10);opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.016em">Design <span style="color:#626A7A">+</span> Engineering</h3><p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#A8B0BF;max-width:44ch">Not just beautiful screens. Functional systems that survive the second year.</p></div>
+<div data-rv data-rv-d="60" style="padding:30px 28px;border-bottom:1px solid rgba(255,255,255,.10);border-left:1px solid rgba(255,255,255,.10);opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.016em">Shopify-first</h3><p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#A8B0BF;max-width:44ch">We know the platform's architecture and its constraints — including where it will fight you.</p></div>
+<div data-rv data-rv-d="120" style="padding:30px 28px;border-bottom:1px solid rgba(255,255,255,.10);border-left:1px solid rgba(255,255,255,.10);opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.016em">Conversion-aware</h3><p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#A8B0BF;max-width:44ch">The store isn't finished when it looks good. It's finished when it sells better than the one before it.</p></div>
+<div data-rv data-rv-d="180" style="padding:30px 28px 30px 0;border-bottom:1px solid rgba(255,255,255,.10);opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.016em">Built for iteration</h3><p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#A8B0BF;max-width:44ch">The architecture assumes you'll want to change things. Adding a feature shouldn't mean a rebuild.</p></div>
+<div data-rv data-rv-d="240" style="padding:30px 28px;border-bottom:1px solid rgba(255,255,255,.10);border-left:1px solid rgba(255,255,255,.10);opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.016em">Custom when necessary</h3><p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#A8B0BF;max-width:44ch">We don't force your business into a template — and we don't custom-build what a good app already solves.</p></div>
+<div data-rv data-rv-d="300" style="padding:30px 28px;border-bottom:1px solid rgba(255,255,255,.10);border-left:1px solid rgba(255,255,255,.10);opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.016em">One team, in-house</h3><p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#A8B0BF;max-width:44ch">13 people in Mohali. No subcontracting, no translation layer between design and code.</p></div>
+</div>
+</div>
+</section>
+
+<section style="padding:0 20px 120px">
+<div style="max-width:1240px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Clients</span>
+<h2 style="margin:20px 0 0;font-size:clamp(28px,3.4vw,44px);font-weight:700;letter-spacing:-.032em;line-height:1.04">In their words.</h2>
+</div>
+<div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+<figure data-rv style="margin:0;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:28px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><blockquote style="margin:0;font-family:var(--font-serif);font-size:21px;line-height:1.45;letter-spacing:-.012em;color:#F4F6F9">"[Client testimonial goes here]"</blockquote><figcaption style="margin-top:22px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">Client name · Brand</figcaption></figure>
+<figure data-rv data-rv-d="60" style="margin:0;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:28px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><blockquote style="margin:0;font-family:var(--font-serif);font-size:21px;line-height:1.45;letter-spacing:-.012em;color:#F4F6F9">"[Client testimonial goes here]"</blockquote><figcaption style="margin-top:22px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">Client name · Brand</figcaption></figure>
+<figure data-rv data-rv-d="120" style="margin:0;background:#0F1219;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:28px;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)"><blockquote style="margin:0;font-family:var(--font-serif);font-size:21px;line-height:1.45;letter-spacing:-.012em;color:#F4F6F9">"[Client testimonial goes here]"</blockquote><figcaption style="margin-top:22px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">Client name · Brand</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section id="faq" style="padding:0 20px 120px">
+<div style="max-width:920px;margin:0 auto">
+<div data-rv style="opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">FAQ</span>
+<h2 style="margin:20px 0 0;font-size:clamp(28px,3.4vw,44px);font-weight:700;letter-spacing:-.032em;line-height:1.04">Questions founders actually ask.</h2>
+</div>
+<div style="margin-top:36px">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Accordion" items="{{ faqItems }}" default-open="{{ null }}" hint-size="100%,520px"></x-import>
+</div>
+</div>
+</section>
+
+<section style="position:relative;overflow:hidden;padding:140px 20px;border-top:1px solid rgba(255,255,255,.10)">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 20%,transparent 90%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 20%,transparent 90%);pointer-events:none"></div>
+<div style="position:absolute;bottom:-420px;left:50%;transform:translateX(-50%);width:1100px;height:1000px;background:radial-gradient(circle,rgba(20,86,229,.16) 0%,rgba(20,86,229,0) 62%);pointer-events:none"></div>
+<div data-rv style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .64s cubic-bezier(.16,1,.3,1),transform .64s cubic-bezier(.16,1,.3,1)">
+<span style="display:block;height:3px;width:88px;border-radius:99px;background:var(--gradient-brand)"></span>
+<h2 style="margin:34px 0 0;font-size:clamp(32px,5vw,64px);font-weight:800;letter-spacing:-.042em;line-height:.98;max-width:16ch">Have a Shopify problem? Let's build the solution.</h2>
+<p style="margin:24px 0 0;font-size:18px;line-height:1.6;color:#A8B0BF;max-width:50ch">Tell us what you're trying to build, fix, improve or scale. You'll hear back from a developer, not a salesperson.</p>
+<div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+<span data-action="open-modal" data-magnet style="display:inline-flex">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="primary" size="lg" hint-size="180px,52px">Start a project →</x-import>
+</span>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="ghost" size="lg" href="#work" hint-size="150px,52px">See our work</x-import>
+</div>
+<span style="margin-top:34px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#515869">&lt;shopify.store /&gt; · build → test → deploy</span>
+</div>
+</section>
+
+<footer style="border-top:1px solid rgba(255,255,255,.10);padding:60px 20px 40px">
+<div style="max-width:1240px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:40px">
+<div>
+<img src="assets/logo-horizontal-light.png" alt="Rabiro" style="height:26px;display:block">
+<p style="margin:18px 0 0;font-size:14.5px;line-height:1.6;color:#838B9B;max-width:30ch">Shopify development and eCommerce engineering. Mohali, India.</p>
+</div>
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Build</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:9px;font-size:14.5px"><a href="#services" style="color:#A8B0BF">Custom stores</a><a href="#services" style="color:#A8B0BF">Theme development</a><a href="#services" style="color:#A8B0BF">Redevelopment</a></div>
+</div>
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Extend</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:9px;font-size:14.5px"><a href="#build" style="color:#A8B0BF">Custom apps</a><a href="#build" style="color:#A8B0BF">Integrations</a><a href="#build" style="color:#A8B0BF">Custom features</a></div>
+</div>
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Improve</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:9px;font-size:14.5px"><a href="#services" style="color:#A8B0BF">CRO</a><a href="#services" style="color:#A8B0BF">Performance</a><a href="#pricing" style="color:#A8B0BF">Pricing</a></div>
+</div>
+<div>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#626A7A">Contact</span>
+<div style="margin-top:14px;display:flex;flex-direction:column;gap:9px;font-size:14.5px"><a href="mailto:hello@rabiro.com" style="color:#A8B0BF">hello@rabiro.com</a><span style="color:#838B9B;line-height:1.5">Mirans Square, D180C<br>Sector 74A, Mohali 140308</span></div>
+</div>
+</div>
+<div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+<span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#515869">© 2026 Rabiro · Official Shopify Partner</span>
+<span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#515869">status: production · uptime: monitored</span>
+</div>
+</div>
+</footer>
+
+<div data-modal style="display:none;position:fixed;inset:0;z-index:90;align-items:center;justify-content:center;padding:20px">
+<div data-action="close-modal" style="position:absolute;inset:0;background:rgba(3,4,6,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
+<div role="dialog" aria-modal="true" aria-label="Start a project" style="position:relative;width:100%;max-width:620px;max-height:88vh;overflow-y:auto;background:rgba(15,18,25,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:26px;padding:clamp(24px,4vw,38px);box-shadow:0 50px 120px rgba(0,0,0,.7)">
+<button data-action="close-modal" type="button" aria-label="Close" style="position:absolute;top:18px;right:18px;appearance:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:#F4F6F9;width:34px;height:34px;border-radius:10px;cursor:pointer;font-size:15px">✕</button>
+<div data-form-wrap>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#838B9B">Project brief</span>
+<h2 style="margin:14px 0 0;font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.028em;line-height:1.08">Tell us what you're building.</h2>
+<p style="margin:12px 0 0;font-size:15px;line-height:1.6;color:#A8B0BF;max-width:46ch">Six fields. You'll get a reply from a developer within one working day.</p>
+<form data-form style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Name" name="name" placeholder="Your name" required="{{ true }}" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Work email" name="email" type="email" placeholder="you@brand.com" required="{{ true }}" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="WhatsApp number" name="whatsapp" type="tel" placeholder="+91" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Company / brand" name="company" placeholder="Brand name" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Input" label="Current website" name="website" placeholder="yourstore.com" containerStyle="{{ fullSpan }}" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Select" label="What do you need?" name="need" options="{{ needOptions }}" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Select" label="Approximate budget" name="budget" options="{{ budgetOptions }}" hint-size="100%,72px"></x-import>
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Textarea" label="Tell us about the project" name="brief" rows="{{ 4 }}" placeholder="What's broken, what you want built, and by when." containerStyle="{{ fullSpan }}" hint-size="100%,130px"></x-import>
+<div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:4px">
+<x-import component-from-global-scope="RabiroDesignSystem_cdcf14.Button" variant="primary" size="lg" type="submit" hint-size="200px,52px">Send project brief →</x-import>
+<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#626A7A">no spam · no sales sequence</span>
+</div>
+</form>
+</div>
+<div data-form-done style="display:none;flex-direction:column;align-items:flex-start;gap:16px;padding:20px 0">
+<span style="width:46px;height:46px;border-radius:99px;background:rgba(123,207,70,.14);border:1px solid rgba(123,207,70,.4);display:flex;align-items:center;justify-content:center;color:#A5E181;font-size:20px">✓</span>
+<h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.028em">Brief received.</h2>
+<p style="margin:0;font-size:16px;line-height:1.6;color:#A8B0BF;max-width:42ch">We'll read it properly and come back within one working day — usually with questions, sometimes with a first take.</p>
+<span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#626A7A">status: queued · assigned: developer</span>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showComparison&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page&quot;},&quot;showFeaturedCase&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page&quot;},&quot;motionLevel&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;off&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;'full' | 'off'&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showComparison: this.props.showComparison ?? true,
+      showFeaturedCase: this.props.showFeaturedCase ?? true,
+      fullSpan: { gridColumn: '1 / -1' },
+      needOptions: ['New Shopify store', 'Store redesign', 'CRO', 'Custom Shopify app', 'Custom feature', 'Performance', 'Integration', 'Other'],
+      budgetOptions: ['₹50K–₹1L', '₹1L–₹1.5L', '₹1.5L+', 'Not sure yet'],
+      faqItems: [
+        { title: 'How much does a Shopify store cost?', body: 'Builds start from ₹50,000. Fully custom Shopify engineering — custom apps, integrations, deep functionality — starts from ₹1.5L. Every number is quoted after an audit, not before.' },
+        { title: 'Can you redesign my existing Shopify store?', body: 'Yes. Most of our work is redevelopment rather than first builds. We audit what exists, keep what performs and re-engineer the rest.' },
+        { title: 'Can you work with my existing theme?', body: 'Usually yes — it depends on the technical condition of the theme and what you need built. If the theme is fighting you, we will say so rather than pile more code onto it.' },
+        { title: 'Do you build custom Shopify apps?', body: 'Yes — private and public apps against the Admin, Storefront and Function APIs, including embedded admin interfaces.' },
+        { title: 'Can you improve my conversion rate?', body: 'Yes. CRO can run as part of a redevelopment or as a standalone engagement on your current store.' },
+        { title: 'How long does a Shopify project take?', body: 'Typical ranges: a foundation build 2–4 weeks, a customised build 4–8 weeks, custom engineering 8 weeks and up. Scope and content readiness move these — we commit to a timeline only after the audit.' },
+        { title: 'Can you integrate third-party tools?', body: 'Yes — ERP, CRM, WMS, accounting, loyalty, WhatsApp, analytics and anything with an API worth talking to.' },
+        { title: 'What happens after launch?', body: 'Every plan includes post-launch support, and ongoing development runs as a retainer with a named developer rather than a ticket queue.' }
+      ]
+    };
+  }
+
+  componentDidMount() { this.boot(); }
+  componentDidUpdate() { this.reveal(); }
+  componentWillUnmount() { (this._off || []).forEach(f => f()); }
+
+  boot() {
+    if (this._booted) return;
+    this._booted = true;
+    this._off = [];
+    const on = (t, e, f, o) => { t.addEventListener(e, f, o); this._off.push(() => t.removeEventListener(e, f, o)); };
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._motion = (this.props.motionLevel ?? 'full');
+    this._still = reduced || this._motion === 'off';
+
+    on(document, 'click', (e) => {
+      const el = e.target instanceof Element ? e.target : null;
+      if (!el) return;
+      const svc = el.closest('[data-svc]');
+      if (svc) { this.toggleSvc(svc); return; }
+      const act = el.closest('[data-action]');
+      if (!act) return;
+      const a = act.getAttribute('data-action');
+      if (a === 'open-modal') { e.preventDefault(); this.setModal(true); }
+      else if (a === 'close-modal') { this.setModal(false); }
+      else if (a === 'toggle-mobile') { this.setMobile(); }
+      else if (a === 'close-mobile') { this.setMobile(false); }
+      else if (a === 'toggle-compare') { this.toggleCompare(act); }
+    });
+
+    on(document, 'keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      this.setModal(false); this.setMobile(false); this.setMega(false);
+    });
+
+    on(document, 'submit', (e) => {
+      const f = e.target instanceof Element ? e.target.closest('[data-form]') : null;
+      if (!f) return;
+      e.preventDefault();
+      const wrap = document.querySelector('[data-form-wrap]');
+      const done = document.querySelector('[data-form-done]');
+      if (wrap) wrap.style.display = 'none';
+      if (done) done.style.display = 'flex';
+    });
+
+    const wrap = document.querySelector('[data-mega-wrap]');
+    const mega = document.querySelector('[data-mega]');
+    if (wrap && mega) {
+      const enter = () => this.setMega(true);
+      const leave = (e) => {
+        const to = e.relatedTarget;
+        if (to instanceof Node && (wrap.contains(to) || mega.contains(to))) return;
+        this.setMega(false);
+      };
+      on(wrap, 'mouseenter', enter); on(wrap, 'mouseleave', leave);
+      on(mega, 'mouseenter', enter); on(mega, 'mouseleave', leave);
+      const trig = wrap.querySelector('[data-mega-trigger]');
+      if (trig) on(trig, 'click', (e) => { e.preventDefault(); this.setMega(mega.style.display === 'none'); });
+    }
+
+    const bar = document.querySelector('[data-headbar]');
+    if (bar) {
+      const onScroll = () => {
+        const s = window.scrollY > 24;
+        bar.style.background = s ? 'rgba(10,12,18,.86)' : 'rgba(10,12,18,.62)';
+        bar.style.borderColor = s ? 'rgba(255,255,255,.14)' : 'rgba(255,255,255,.10)';
+      };
+      on(window, 'scroll', onScroll, { passive: true }); onScroll();
+    }
+
+    if (!this._still) {
+      const hero = document.querySelector('[data-hero]');
+      const glow = document.querySelector('[data-glow]');
+      if (hero && glow) {
+        on(hero, 'pointermove', (e) => {
+          const r = hero.getBoundingClientRect();
+          glow.style.opacity = '1';
+          glow.style.transform = 'translate3d(' + (e.clientX - r.left) + 'px,' + (e.clientY - r.top) + 'px,0)';
+        }, { passive: true });
+        on(hero, 'pointerleave', () => { glow.style.opacity = '0'; });
+      }
+      document.querySelectorAll('[data-magnet]').forEach((m) => {
+        on(m, 'pointermove', (e) => {
+          const r = m.getBoundingClientRect();
+          m.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * 0.18) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.3) + 'px)';
+        }, { passive: true });
+        on(m, 'pointerleave', () => { m.style.transition = 'transform .4s cubic-bezier(.16,1,.3,1)'; m.style.transform = 'translate(0,0)'; });
+        on(m, 'pointerenter', () => { m.style.transition = 'transform .12s linear'; });
+      });
+      const steps = Array.from(document.querySelectorAll('[data-step]'));
+      if (steps.length) {
+        let i = 0;
+        const tick = () => {
+          steps.forEach((s, n) => {
+            const active = n === i;
+            s.style.color = active ? '#F4F6F9' : '#626A7A';
+            s.style.background = active ? 'rgba(20,86,229,.16)' : 'transparent';
+          });
+          i = (i + 1) % steps.length;
+        };
+        tick();
+        this._timer = setInterval(tick, 1500);
+        this._off.push(() => clearInterval(this._timer));
+      }
+    }
+
+    this.reveal();
+    [400, 1200, 2600].forEach(t => setTimeout(() => this.reveal(), t));
+  }
+
+  reveal() {
+    const nodes = Array.from(document.querySelectorAll('[data-rv]:not([data-rv-done])'));
+    if (!nodes.length) return;
+    if (this._still || typeof IntersectionObserver === 'undefined') {
+      nodes.forEach(n => { n.setAttribute('data-rv-done', ''); n.style.opacity = '1'; n.style.transform = 'none'; });
+      return;
+    }
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          const el = en.target;
+          obs.unobserve(el);
+          el.setAttribute('data-rv-done', '');
+          const d = parseInt(el.getAttribute('data-rv-d') || '0', 10);
+          setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, d);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }
+    nodes.forEach(n => this._io.observe(n));
+    clearTimeout(this._safety);
+    this._safety = setTimeout(() => {
+      document.querySelectorAll('[data-rv]').forEach(n => {
+        if (getComputedStyle(n).opacity !== '1') { n.setAttribute('data-rv-done', ''); n.style.opacity = '1'; n.style.transform = 'none'; }
+      });
+    }, 6000);
+  }
+
+  setMega(open) {
+    const mega = document.querySelector('[data-mega]');
+    const chev = document.querySelector('[data-mega-chev]');
+    if (!mega) return;
+    if (open) {
+      mega.style.display = 'block';
+      requestAnimationFrame(() => { mega.style.opacity = '1'; mega.style.transform = 'translateY(0)'; });
+    } else {
+      mega.style.opacity = '0'; mega.style.transform = 'translateY(-8px)';
+      setTimeout(() => { if (mega.style.opacity === '0') mega.style.display = 'none'; }, 200);
+    }
+    if (chev) chev.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+
+  setMobile(force) {
+    const m = document.querySelector('[data-mobile-menu]');
+    if (!m) return;
+    const open = force === undefined ? m.style.display === 'none' : force;
+    m.style.display = open ? 'flex' : 'none';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  setModal(open) {
+    const m = document.querySelector('[data-modal]');
+    if (!m) return;
+    m.style.display = open ? 'flex' : 'none';
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      this.setMega(false); this.setMobile(false);
+      const first = m.querySelector('input');
+      if (first) setTimeout(() => first.focus(), 60);
+    }
+  }
+
+  toggleSvc(svc) {
+    const body = svc.querySelector('[data-svc-body]');
+    const plus = svc.querySelector('[data-svc-plus]');
+    if (!body) return;
+    const open = body.style.maxHeight && body.style.maxHeight !== '0px';
+    document.querySelectorAll('[data-svc]').forEach((o) => {
+      const b = o.querySelector('[data-svc-body]'); const p = o.querySelector('[data-svc-plus]');
+      if (b) b.style.maxHeight = '0px';
+      if (p) { p.style.transform = 'rotate(0deg)'; p.style.color = '#626A7A'; }
+    });
+    if (!open) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      if (plus) { plus.style.transform = 'rotate(45deg)'; plus.style.color = '#82A6F6'; }
+    }
+  }
+
+  toggleCompare(btn) {
+    const body = document.querySelector('[data-compare-body]');
+    const plus = btn.querySelector('[data-compare-plus]');
+    if (!body) return;
+    const open = body.style.maxHeight && body.style.maxHeight !== '0px';
+    body.style.maxHeight = open ? '0px' : body.scrollHeight + 'px';
+    if (plus) plus.style.transform = open ? 'rotate(0deg)' : 'rotate(45deg)';
+  }
+}
+</script>
+</body>
+</html>
